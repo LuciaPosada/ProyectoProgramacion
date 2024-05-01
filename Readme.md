@@ -8,4 +8,4 @@ El jugador asume el papel de un inversor con un límite de tiempo definido por s
 
 ## Diagramas: 
 
-![GUI](/Diagramas/GUI)
+![GUI](/Diagramas/GUI.png)
