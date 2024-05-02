@@ -67,4 +67,23 @@ public class Producto {
         this.cantidad = cantidad;
     }
 
+    // OTROS
+
+    /**
+     * Calcula el precio maximo que puede alcanzar el producto
+     * @param precio precio base del producto
+     * @return el precio maximo
+     */
+    private static int calcularPrecioMax(int precio) {
+        return (int) (precio + (precio * PORCENTAJE_DESCUENTO));
+    }
+    /**
+     * Calcula el precio minimo que puede alcanzar el producto
+     * @param precio precio base del producto
+     * @return el precio minimo
+     */
+    private static int calcularPrecioMin(int precio) {
+        return (int) (precio - (precio * PORCENTAJE_DESCUENTO));
+    }
+
 }
