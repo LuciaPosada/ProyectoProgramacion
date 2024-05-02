@@ -8,4 +8,10 @@ El jugador asume el papel de un inversor con un límite de tiempo definido por s
 
 ## Diagramas: 
 
+### Diseño de la interfaz grafica
+
 ![GUI](/Diagramas/GUI.png)
+
+### Diagrama de clases
+
+![Clases](/Diagramas/Proyecto_Clases.png)
