@@ -26,7 +26,7 @@ public class ContadorAños {
         
         final int VEINTE_AÑOS = 20;
         final int CUARENTA_AÑOS = 40;
-        final int SESENTA_AÑOS = 20;
+        final int SESENTA_AÑOS = 60;
         
         if(años>VEINTE_AÑOS&&años<CUARENTA_AÑOS){
             return salud - SALUD_A_EMPEORAR_ENTRE_20_40_AÑOS;

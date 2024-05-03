@@ -13,7 +13,7 @@ public class Producto {
 
     private int precioMax;
 
-    public static double PORCENTAJE_DESCUENTO = 0.5;
+    public final static double PORCENTAJE_DESCUENTO = 0.5;
 
     public Producto(String nombreProducto,int precio,int cantidad) {
         this.nombreProducto = nombreProducto;
