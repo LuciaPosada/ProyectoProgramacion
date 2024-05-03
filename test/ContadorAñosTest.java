@@ -10,4 +10,14 @@ public class ContadorAñosTest {
     public void comprobacionSumarAño() {
         Assertions.assertEquals(50, ContadorAños.sumarAño(49));
     }
+
+    @Test
+    public void comprobacionEmpeorarSaludMenos40Años() {
+        Assertions.assertEquals(90, ContadorAños.empeorarSalud(100,25));
+    }
+
+    @Test
+    public void comprobacionEmpeorarSaludMayor40Años() {
+        Assertions.assertEquals(80, ContadorAños.empeorarSalud(100,41));
+    }
 }
