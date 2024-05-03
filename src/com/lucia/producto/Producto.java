@@ -13,7 +13,7 @@ public class Producto {
 
     private int precioMax;
 
-    public static double PORCENTAJE_DESCUENTO = 0.5;
+    public static double PORCENTAJE_VARIACION = 0.5;
 
     public Producto(String nombreProducto,int precio,int cantidad) {
         this.nombreProducto = nombreProducto;
@@ -75,7 +75,7 @@ public class Producto {
      * @return el precio maximo
      */
     private static int calcularPrecioMax(int precio) {
-        return (int) (precio + (precio * PORCENTAJE_DESCUENTO));
+        return (int) (precio + (precio * PORCENTAJE_VARIACION));
     }
     /**
      * Calcula el precio minimo que puede alcanzar el producto
@@ -83,7 +83,7 @@ public class Producto {
      * @return el precio minimo
      */
     private static int calcularPrecioMin(int precio) {
-        return (int) (precio - (precio * PORCENTAJE_DESCUENTO));
+        return (int) (precio - (precio * PORCENTAJE_VARIACION));
     }
 
 }
