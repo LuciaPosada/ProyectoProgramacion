@@ -2,18 +2,30 @@
 package com.lucia.producto;
 
 public class Producto {
-    
+    /**
+     * Nombre del producto
+     */
     private String nombreProducto;
-
+    /**
+     * Cantidad del producto disponible
+     */
     private int cantidad;
-    
+    /**
+     * Precio unitario del producto
+     */
     private int precio;
-
+    /**
+     * Precio unitario minimo que el producto puede alcanzar
+     */
     private int precioMin;
-
+    /**
+     * Precio unitario maximo que el producto puede alcanzar
+     */
     private int precioMax;
-
-    public final static double PORCENTAJE_DESCUENTO = 0.5;
+    /**
+     * Porcentaje de descuento estático para calcular el precio mínimo y máximo.
+     */
+    public static double PORCENTAJE_DESCUENTO = 0.5;
 
     public Producto(String nombreProducto,int precio,int cantidad) {
         this.nombreProducto = nombreProducto;
