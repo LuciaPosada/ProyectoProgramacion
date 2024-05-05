@@ -1,4 +1,4 @@
-# Titulo Pendiente
+# Especulacion Financiera para Dummies
 
 Este proyecto apunta crear un juego con la especulacion financiera como base.
 
