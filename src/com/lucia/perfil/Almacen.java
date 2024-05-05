@@ -6,9 +6,13 @@ import java.util.HashMap;
 import com.lucia.producto.Producto;
 
 public class Almacen {
-    
+    /**
+     * Espacio disponible para almacenar Productos
+     */
     private int espacioAlmacen;
-    
+    /**
+     * Mapa para almacenar los productos por nombre
+     */
     private HashMap<String,Producto> procuctosAlmacenados;
     
     // CONSTRUCTOR

@@ -2,17 +2,27 @@
 package com.lucia.perfil;
 
 public class Perfil {
-    
+    /**
+     * Nombre del perfil de la partida
+     */
     private String nombrePerfil;
-    
+    /**
+     * Dinero disponible para el jugador
+     */
     private int fondos;
-    
+    /**
+     * Cantidad de salud del jugador
+     */
     private int salud;
     
     public final static int SALUD_MIN_PARTIDA = 1;
-    
+    /**
+     * Años de la partida
+     */
     private int años;
-    
+    /**
+     * Almacen asociado al perfil
+     */
     private Almacen almacen;
     
     // CONSTRUCTOR
