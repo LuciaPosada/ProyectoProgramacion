@@ -2,13 +2,14 @@
 package com.lucia.interfaz;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-
 
 public class PanelPerfil extends JPanel {
 
@@ -42,16 +43,23 @@ public class PanelPerfil extends JPanel {
             panelStats.add(espacioEtiqueta);
             panelStats.add(placeholderEtiqueta);
 
-	// Panel Botones
+        // Panel Botones
 
-	    JPanel panelBtns = new JPanel(); // Pendiente de accion
+            JPanel panelBtns = new JPanel();
             panelBtns.setLayout(new BoxLayout(panelBtns, BoxLayout.X_AXIS));
 
-	    JButton btnVolver = new JButton("Volver al Inicio"); // Pendiente de accion
+            JButton btnVolver = new JButton("Volver al Inicio");
+            btnVolver.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    VentanaPrincipal ventanaPrincipal = (VentanaPrincipal) getTopLevelAncestor();
+                    ventanaPrincipal.mostrarPanelInicio();
+                }
+            });
 
-	    JButton btnAvanzar = new JButton("Avanzar Año"); // Pendiente de accion
+            JButton btnAvanzar = new JButton("Avanzar Año"); // Pendiente de accion
 
-	    panelBtns.add(Box.createHorizontalGlue()); 
+            panelBtns.add(Box.createHorizontalGlue()); 
             panelBtns.add(btnVolver);
             panelBtns.add(Box.createHorizontalStrut(10)); 
             panelBtns.add(btnAvanzar);
@@ -80,7 +88,6 @@ public class PanelPerfil extends JPanel {
         add(Box.createVerticalStrut(10)); 
         add(panelBtns);
         add(Box.createVerticalGlue());
-
     }
 
 }
