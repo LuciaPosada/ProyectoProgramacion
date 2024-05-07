@@ -3,6 +3,16 @@ package com.lucia.actividades;
 public class CompraVenta {
 
     /**
+     * Reduce los fondos disponibles al gastar una cierta cantidad de dineroS
+     * @param fondos Los fondos disponibles antes de gastar el dinero
+     * @param precioTotal La cantidad de dinero a gastar
+     * @return Los fondos restantes después de gastar el dinero
+     */
+    public static int gastarDinero(int fondos,int precioTotal){
+        return fondos - precioTotal;
+    }
+
+    /**
      * Aumenta la cantidad almacenada de un producto 
      * @param cantAumentar La cantidad a almacenar del producto
      * @param cantAlmacenada La cantidad actualmente almacenada del producto
