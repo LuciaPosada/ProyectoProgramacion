@@ -1,3 +1,6 @@
+
+package com.lucia.interfaz;
+
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JFrame;
@@ -35,6 +38,10 @@ public class VentanaPrincipal extends JFrame {
         add(panelPrueba1, "panelP1");
         add(panelPrueba2, "panelP2");
 
+        cardLayout.show(getContentPane(), "panelInicio");
+    }
+
+    public void mostrarPanelInicio() {
         cardLayout.show(getContentPane(), "panelInicio");
     }
 
