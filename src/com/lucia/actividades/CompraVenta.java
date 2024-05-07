@@ -3,6 +3,16 @@ package com.lucia.actividades;
 public class CompraVenta {
 
     /**
+     * Aumenta la cantidad almacenada de un producto 
+     * @param cantAumentar La cantidad a almacenar del producto
+     * @param cantAlmacenada La cantidad actualmente almacenada del producto
+     * @return La nueva cantidad almacenada después de aumentar la cantidad especificada
+     */
+    public static int aumentarCantidadProductoAlmacenado(int cantAumentar,int cantAlmacenada){
+        return cantAlmacenada + cantAumentar;
+    }
+
+     /**
      * Reduce la cantidad almacenada de un producto 
      * @param cantReducir La cantidad a reducir del producto almacenado
      * @param cantAlmacenada La cantidad actualmente almacenada del producto
