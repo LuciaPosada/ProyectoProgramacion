@@ -23,6 +23,17 @@ public class PanelPerfil extends JPanel {
 
         // Panel de Estadisticas del Jugador
 
+            JPanel panelStats = new JPanel();
+            panelStats.setLayout(new BoxLayout(panelStats, BoxLayout.Y_AXIS));
+
+            JLabel saludEtiqueta = new JLabel("[img] Salud: [num]");
+            JLabel espacioEtiqueta = new JLabel("[img] Espacio: [num]");
+            JLabel placeholderEtiqueta = new JLabel("[img] Placeholder: [num]");
+
+            panelStats.add(saludEtiqueta);
+            panelStats.add(espacioEtiqueta);
+            panelStats.add(placeholderEtiqueta);
+
 	// Panel Botones
 
     }
