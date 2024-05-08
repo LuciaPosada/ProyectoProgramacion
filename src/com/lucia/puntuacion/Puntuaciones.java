@@ -19,4 +19,12 @@ public class Puntuaciones {
         return puntuacionNuevo; 
     }
     
+    /**
+     * Obtiene la puntuación almacenada con la clave especificada.
+     * @param clave Clave de la puntuación a recuperar
+     * @return La puntuación asociada con la clave, o null si no existe.
+     */
+    public static Puntuacion getPuntuacion(String clave) {
+        return puntuaciones.get(clave);
+    }
 }
