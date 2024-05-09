@@ -1,6 +1,7 @@
 package com.lucia.interfaz;
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -18,10 +19,15 @@ public class PanelProducto extends JPanel{
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         setBackground(Color.PINK); // prueba
 
+	Font fuente = new Font("Arial", Font.BOLD, 16);
+
         // Texto (Etiquetas)
 
             nombreProductoLabel = new JLabel("[Producto]");
             precioActualLabel = new JLabel("[Precio]");
+
+            nombreProductoLabel.setFont(fuente);
+            precioActualLabel.setFont(fuente);
 
         // Botones
         
