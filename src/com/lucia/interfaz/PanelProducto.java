@@ -1,6 +1,7 @@
 package com.lucia.interfaz;
 
 import java.awt.Color;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -30,8 +31,11 @@ public class PanelProducto extends JPanel{
         // Añadir elementos al panel
         
         add(nombreProductoLabel);
+        add(Box.createHorizontalStrut(20));
         add(precioActualLabel);
+        add(Box.createHorizontalStrut(10));
         add(comprarBtn);
+        add(Box.createHorizontalStrut(5));
         add(venderBtn);
     }
 
