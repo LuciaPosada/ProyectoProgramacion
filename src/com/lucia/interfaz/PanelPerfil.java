@@ -1,15 +1,11 @@
-
-package com.lucia.interfaz;
-
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.BorderFactory; 
+import javax.swing.border.Border; 
 
 public class PanelPerfil extends JPanel {
 
@@ -20,10 +16,8 @@ public class PanelPerfil extends JPanel {
 
             JPanel panelInfo = new JPanel();
             panelInfo.setLayout(new BoxLayout(panelInfo, BoxLayout.X_AXIS));
-
             JLabel nombreEtiqueta = new JLabel("[nombre]");
             JLabel añosEtiqueta = new JLabel("Años: [num]");
-
             panelInfo.add(Box.createHorizontalGlue()); 
             panelInfo.add(nombreEtiqueta);
             panelInfo.add(Box.createHorizontalStrut(10)); 
@@ -34,60 +28,44 @@ public class PanelPerfil extends JPanel {
 
             JPanel panelStats = new JPanel();
             panelStats.setLayout(new BoxLayout(panelStats, BoxLayout.Y_AXIS));
-
             JLabel saludEtiqueta = new JLabel("[img] Salud: [num]");
             JLabel espacioEtiqueta = new JLabel("[img] Espacio: [num]");
-            JLabel placeholderEtiqueta = new JLabel("[img] Placeholder: [num]"); // Placeholder
-
+            JLabel placeholderEtiqueta = new JLabel("[img] Placeholder: [num]");
             panelStats.add(saludEtiqueta);
             panelStats.add(espacioEtiqueta);
             panelStats.add(placeholderEtiqueta);
 
         // Panel Botones
 
-            JPanel panelBtns = new JPanel();
-            panelBtns.setLayout(new BoxLayout(panelBtns, BoxLayout.X_AXIS));
+            JPanel panelBtns = new PanelBotonesJuego();
 
-            JButton btnVolver = new JButton("Volver al Inicio");
-            btnVolver.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    VentanaPrincipal ventanaPrincipal = (VentanaPrincipal) getTopLevelAncestor();
-                    ventanaPrincipal.mostrarPanelInicio();
-                }
-            });
+        // Bordes
 
-            JButton btnAvanzar = new JButton("Avanzar Año"); // Pendiente de accion
+            Border borde = BorderFactory.createTitledBorder("Acciones");
 
-            panelBtns.add(Box.createHorizontalGlue()); 
-            panelBtns.add(btnVolver);
-            panelBtns.add(Box.createHorizontalStrut(10)); 
-            panelBtns.add(btnAvanzar);
-            panelBtns.add(Box.createHorizontalGlue());
+            panelBtns.setBorder(borde);
 
         // Ajustar paneles
 
-        Dimension maxDimension = new Dimension(Integer.MAX_VALUE, 50); 
+            Dimension maxDimension = new Dimension(Integer.MAX_VALUE, 50);
+            panelInfo.setMaximumSize(maxDimension);
+            panelStats.setMaximumSize(maxDimension);
+            panelBtns.setMaximumSize(maxDimension);
 
-        panelInfo.setMaximumSize(maxDimension);
-        panelStats.setMaximumSize(maxDimension);
-        panelBtns.setMaximumSize(maxDimension);
-
-        panelInfo.setAlignmentX(CENTER_ALIGNMENT);
-        panelStats.setAlignmentX(CENTER_ALIGNMENT);
-        panelBtns.setAlignmentX(CENTER_ALIGNMENT);
+            panelInfo.setAlignmentX(CENTER_ALIGNMENT);
+            panelStats.setAlignmentX(CENTER_ALIGNMENT);
+            panelBtns.setAlignmentX(CENTER_ALIGNMENT);
 
         // Añadir elementos al PanelPerfil
 
-        add(Box.createVerticalGlue());
-        add(panelInfo);
-        add(Box.createVerticalStrut(10)); 
-        add(new JSeparator(JSeparator.HORIZONTAL));
-        add(Box.createVerticalStrut(10)); 
-        add(panelStats);
-        add(Box.createVerticalStrut(10)); 
-        add(panelBtns);
-        add(Box.createVerticalGlue());
+            add(Box.createVerticalGlue());
+            add(panelInfo);
+            add(Box.createVerticalStrut(10));
+            add(new JSeparator(JSeparator.HORIZONTAL));
+            add(Box.createVerticalStrut(10));
+            add(panelStats);
+            add(Box.createVerticalStrut(10));
+            add(panelBtns);
+            add(Box.createVerticalGlue());
     }
-
 }
