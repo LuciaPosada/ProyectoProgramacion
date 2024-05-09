@@ -2,6 +2,7 @@ package com.lucia.interfaz;
 
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -33,6 +34,12 @@ public class PanelProducto extends JPanel{
         
             comprarBtn = new JButton("Comprar");
             venderBtn = new JButton("Vender");
+
+        // Borde
+
+        setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(Color.DARK_GRAY),
+                BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 
         // Añadir elementos al panel
         
