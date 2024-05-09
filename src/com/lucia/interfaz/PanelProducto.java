@@ -13,6 +13,8 @@ public class PanelProducto extends JPanel{
 
     private JLabel nombreProductoLabel;
     private JLabel precioActualLabel;
+    private JLabel cantDisponibleMercado;
+    private JLabel cantDisponibleAlmacen;
     private JButton comprarBtn;
     private JButton venderBtn;
 
@@ -20,15 +22,19 @@ public class PanelProducto extends JPanel{
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         setBackground(Color.PINK); // prueba
 
-	Font fuente = new Font("Arial", Font.BOLD, 16);
+        Font fuente = new Font("Arial", Font.BOLD, 16);
 
         // Texto (Etiquetas)
 
             nombreProductoLabel = new JLabel("[Producto]");
             precioActualLabel = new JLabel("[Precio]");
+            cantDisponibleMercado = new JLabel("[CantMercado]");
+            cantDisponibleAlmacen = new JLabel("[CantAlmacen]");
 
             nombreProductoLabel.setFont(fuente);
             precioActualLabel.setFont(fuente);
+            cantDisponibleMercado.setFont(fuente);
+            cantDisponibleAlmacen.setFont(fuente);
 
         // Botones
         
@@ -46,6 +52,10 @@ public class PanelProducto extends JPanel{
         add(nombreProductoLabel);
         add(Box.createHorizontalStrut(20));
         add(precioActualLabel);
+        add(Box.createHorizontalStrut(10));
+        add(cantDisponibleMercado);
+        add(Box.createHorizontalStrut(10));
+        add(cantDisponibleAlmacen);
         add(Box.createHorizontalStrut(10));
         add(comprarBtn);
         add(Box.createHorizontalStrut(5));
@@ -77,4 +87,5 @@ public class PanelProducto extends JPanel{
         }
     }
 
+}
 }
