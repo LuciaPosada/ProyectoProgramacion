@@ -1,5 +1,7 @@
-import java.awt.BorderLayout;
 
+package com.lucia.interfaz;
+
+import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
