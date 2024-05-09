@@ -1,3 +1,6 @@
+
+package com.lucia.interfaz;
+
 import java.awt.Dimension;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
