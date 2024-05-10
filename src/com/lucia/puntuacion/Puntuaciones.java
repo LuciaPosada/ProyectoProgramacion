@@ -18,7 +18,11 @@ public class Puntuaciones {
         puntuaciones.put("",puntuacionNuevo); // TODO: Metodo para generar claves en orden
         return puntuacionNuevo;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ab37983448597a59045f42b4a1cf4f84e3da5acc
     /**
      * Obtiene la puntuación almacenada con la clave especificada.
      * @param clave Clave de la puntuación a recuperar
@@ -27,5 +31,8 @@ public class Puntuaciones {
     public static Puntuacion getPuntuacion(String clave) {
         return puntuaciones.get(clave);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ab37983448597a59045f42b4a1cf4f84e3da5acc
 }
