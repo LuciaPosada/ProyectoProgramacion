@@ -1,12 +1,13 @@
 package com.lucia.interfaz;
 
 import javax.swing.*;
+import java.awt.BorderLayout;
 
 public class PanelCompraVenta extends JDialog {
 
     private JSlider slider;
 
-    public PanelCompraVenta() { 
+    public PanelCompraVenta() { // ToDo: Buscar como evitar que se pueda interactuar con el programa mientras este panel este activo
         setTitle("Comprar/Vender"); // Pendiente de revision
         setSize(400, 200); 
         setLocationRelativeTo(null);
@@ -33,7 +34,20 @@ public class PanelCompraVenta extends JDialog {
 
                 JLabel cantidadDinero = new JLabel("[precio]");
 
+            sliderPanel.add(slider, BorderLayout.CENTER);
+
+            // Panel Botones
+
+            JPanel btnPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+            cancelarBtn = new JButton("Cancelar");
+            aceptarBtn = new JButton("Aceptar");
+
+            btnPanel.add(cancelarBtn);
+            btnPanel.add(aceptarBtn);
+
 	panel.add(sliderPanel);
+	panel.add(btnPanel);
            
         setContentPane(panel);
         setVisible(true);
