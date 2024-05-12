@@ -10,13 +10,15 @@ public class PanelMercado extends JScrollPane{
     PanelProducto pnlProducto;
     JPanel panelContenedor;
 
+    Mercado mercado = new Mercado();
+
     public PanelMercado(){
 
         panelContenedor = new JPanel();
         panelContenedor.setLayout(new BoxLayout(panelContenedor, BoxLayout.Y_AXIS));
 
-        for (int i = 0; i < 5; i++) {
-            panelContenedor.add(new PanelProducto());
+	for (Producto producto : mercado.getProductosEnVenta().values()) {
+            panelContenedor.add(new PanelProducto(producto));
         }
 
         this.setViewportView(panelContenedor);
