@@ -16,7 +16,7 @@ public class PanelTabs extends JPanel {
 
             // Pestañas
 
-                JPanel panelMercado = new JPanel();
+                PanelMercado panelMercado = new PanelMercado();
                 JPanel placeHolder = new JPanel();
 
             tabbedPane.addTab("Mercado", panelMercado);
