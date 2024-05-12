@@ -88,4 +88,3 @@ public class PanelProducto extends JPanel{
     }
 
 }
-}
