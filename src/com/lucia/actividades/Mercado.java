@@ -27,4 +27,16 @@ public class Mercado {
         int precioNuevo = random.nextInt(precioMax - precioMin + 1) + precioMin;
         return precioNuevo;
     }
+
+    /**
+     * Genera aleatoriamente una nueva cantidad disponible del producto dentro del rango [cantidadMax, cantidadMin]
+     * @param cantidadMax La cantidad maxima permitida
+     * @param cantidadMin La cantidad minima permitida
+     * @return La nueva cantidad
+     */
+    public static int renovarCantidades(int cantidadMax,int cantidadMin) {
+        Random random = new Random();
+        int cantNueva = random.nextInt(cantidadMax - cantidadMin + 1) + cantidadMin;
+        return cantNueva;
+    }
 }
