@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.lucia.producto.Producto;
+
 public class PanelProducto extends JPanel{
 
     private JLabel nombreProductoLabel;
@@ -18,7 +20,7 @@ public class PanelProducto extends JPanel{
     private JButton comprarBtn;
     private JButton venderBtn;
 
-    public PanelProducto(/*producto*/){ // ToDo: Cambiar placeholders
+    public PanelProducto(Producto producto){ // ToDo: Cambiar placeholders
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         setBackground(Color.PINK); // prueba
 
@@ -26,8 +28,8 @@ public class PanelProducto extends JPanel{
 
         // Texto (Etiquetas)
 
-            nombreProductoLabel = new JLabel("[Producto]");
-            precioActualLabel = new JLabel("[Precio]");
+            nombreProductoLabel = new JLabel(producto.getNombreProducto());
+            precioActualLabel = new JLabel(String.valueOf(producto.getPrecio()));
             cantDisponibleMercado = new JLabel("[CantMercado]");
             cantDisponibleAlmacen = new JLabel("[CantAlmacen]");
 
