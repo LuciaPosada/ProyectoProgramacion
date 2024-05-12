@@ -7,12 +7,26 @@ import com.lucia.producto.Producto;
 
 public class Mercado {
 
-    private static HashMap<String,Producto> procuctosEnVenta;
+    private static HashMap<String, Producto> productosEnVenta = new HashMap<>();
 
     // CONSTRUCTOR
 
     public Mercado() {
-        this.procuctosEnVenta = new HashMap<>();
+        añadirProductos();
+    }
+
+    /**
+     * Añade productos predefinidos al map de productos en venta
+     */
+    private static void añadirProductos() { // ToDo: Cambiar los placeholders
+        productosEnVenta.put("Prueba1", new Producto("Prueba1", 10, 5));
+        productosEnVenta.put("Prueba2", new Producto("Prueba2", 15, 25));
+        productosEnVenta.put("Prueba3", new Producto("Prueba3", 45, 7));
+        productosEnVenta.put("Prueba5", new Producto("Prueba5", 35, 8));
+        productosEnVenta.put("Prueba6", new Producto("Prueba6", 95, 1));
+        productosEnVenta.put("Prueba7", new Producto("Prueba7", 36, 19));
+        productosEnVenta.put("Prueba8", new Producto("Prueba8", 104, 36));
+        productosEnVenta.put("Prueba9", new Producto("Prueba9", 265, 3));
     }
 
     /**
