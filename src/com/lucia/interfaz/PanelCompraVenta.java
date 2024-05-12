@@ -2,10 +2,16 @@ package com.lucia.interfaz;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class PanelCompraVenta extends JDialog {
 
+    private JButton cancelarBtn;
+    private JButton aceptarBtn;
     private JSlider slider;
+    private JTextField valorSeleccionadoTxt;
 
     public PanelCompraVenta() { // ToDo: Buscar como evitar que se pueda interactuar con el programa mientras este panel este activo
         setTitle("Comprar/Vender"); // Pendiente de revision
@@ -28,13 +34,29 @@ public class PanelCompraVenta extends JDialog {
                 slider.setPaintTicks(true);
                 slider.setPaintLabels(true);
 
-		sliderPanel.add(slider, BorderLayout.CENTER);
+                // Numero del Slider - JTextField
+
+                valorSeleccionadoTxt = new JTextField(5);
+                valorSeleccionadoTxt.setEditable(false);
+                valorSeleccionadoTxt.setHorizontalAlignment(JTextField.CENTER);
+
+                slider.addChangeListener(new ChangeListener() {
+                    public void stateChanged(ChangeEvent e) {
+                        int valorSeleccionado = slider.getValue();
+                        valorSeleccionadoTxt.setText(Integer.toString(valorSeleccionado));
+                    }
+                });
 
                 // JLabel
 
                 JLabel cantidadDinero = new JLabel("[precio]");
 
+            JPanel informacionPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+            informacionPanel.add(valorSeleccionadoTxt);
+            informacionPanel.add(cantidadDinero);
+
             sliderPanel.add(slider, BorderLayout.CENTER);
+            sliderPanel.add(informacionPanel, BorderLayout.SOUTH);
 
             // Panel Botones
 
@@ -46,9 +68,9 @@ public class PanelCompraVenta extends JDialog {
             btnPanel.add(cancelarBtn);
             btnPanel.add(aceptarBtn);
 
-	panel.add(sliderPanel);
-	panel.add(btnPanel);
-           
+        panel.add(sliderPanel);
+        panel.add(btnPanel);
+
         setContentPane(panel);
         setVisible(true);
     }
@@ -59,3 +81,4 @@ public class PanelCompraVenta extends JDialog {
         });
     }
 }
+
