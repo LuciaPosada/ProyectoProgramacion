@@ -4,8 +4,9 @@ package com.lucia.interfaz;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.Box; 
+import javax.swing.Box;
 import java.awt.Color;
+import java.awt.Font;
 
 public class PanelInicio extends JPanel {
 
@@ -23,7 +24,7 @@ public class PanelInicio extends JPanel {
 
 
         // Estetica de los botones
-            Font buttonFont = new Font("Arial", Font.PLAIN, 17); 
+            Font buttonFont = new Font("Arial", Font.PLAIN, 17);
 
             btnNuevaPrt.setFont(buttonFont);
             btnCargarPrt.setFont(buttonFont);
