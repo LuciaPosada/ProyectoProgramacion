@@ -33,7 +33,7 @@ public class Mercado {
      * Obtiene el mapa de productos en venta
      * @return Un mapa de productos
      */
-    public static Map<String, Producto> getProductosEnVenta() {
+    public static HashMap<String, Producto> getProductosEnVenta() {
         return productosEnVenta;
     }
 
