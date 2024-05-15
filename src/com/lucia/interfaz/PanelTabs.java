@@ -17,10 +17,12 @@ public class PanelTabs extends JPanel {
             // Pestañas
 
                 PanelMercado panelMercado = new PanelMercado();
-                JPanel placeHolder = new JPanel();
+                PanelCiudad panelCiudad = new PanelCiudad();
+                JPanel placeholder = new JPanel();
 
             tabbedPane.addTab("Mercado", panelMercado);
-            tabbedPane.addTab("placeHolder", placeHolder);
+            tabbedPane.addTab("Ciudad", panelCiudad);
+            tabbedPane.addTab("Placeholder", placeholder);
 
         add(tabbedPane, BorderLayout.CENTER);
 
