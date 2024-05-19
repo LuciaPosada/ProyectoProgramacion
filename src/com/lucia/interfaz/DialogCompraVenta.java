@@ -13,7 +13,8 @@ public class DialogCompraVenta extends JDialog {
     private JSlider slider;
     private JTextField valorSeleccionadoTxt;
 
-    public DialogCompraVenta() {
+    public DialogCompraVenta(JFrame parent) {
+        super(parent, true);
         setTitle("Comprar/Vender"); // Pendiente de revision
         setSize(400, 200); 
         setLocationRelativeTo(null);
@@ -73,12 +74,6 @@ public class DialogCompraVenta extends JDialog {
 
         setContentPane(panel);
         setVisible(true);
-    }
-
-    public static void main(String[] args) { // Preuba
-        SwingUtilities.invokeLater(() -> {
-            new DialogCompraVenta();
-        });
     }
 }
 

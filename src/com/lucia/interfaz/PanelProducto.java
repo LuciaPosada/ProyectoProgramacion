@@ -17,8 +17,11 @@ public class PanelProducto extends JPanel{
     private JButton comprarBtn;
     private JButton venderBtn;
 
+    private JFrame parentFrame; // Para pasarselo al panel CompraVenta
+
     public PanelProducto(Producto producto){ // ToDo: Cambiar placeholders
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        this.parentFrame = parentFrame;
 
         Font fuente = new Font("Arial", Font.BOLD, 16);
 
@@ -104,8 +107,9 @@ public class PanelProducto extends JPanel{
      * Muestra el dialogo de compra/venta
      */
     private void mostrarDialogCompraVenta() {
-        DialogCompraVenta dialog = new DialogCompraVenta();
+        DialogCompraVenta dialog = new DialogCompraVenta(parentFrame);
         dialog.setVisible(true);
     }
 
 }
+
