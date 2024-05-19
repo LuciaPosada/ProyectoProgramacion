@@ -14,8 +14,15 @@ import javax.swing.border.Border;
 import com.lucia.perfil.Perfil;
 
 public class PanelPerfil extends JPanel {
+    private Perfil perfil;
+    private JLabel nombreEtiqueta;
+    private JLabel añosEtiqueta;
+    private JLabel saludEtiqueta;
+    private JLabel espacioEtiqueta;
+    private JLabel placeholderEtiqueta;
 
     public PanelPerfil(Perfil perfil) {
+        this.perfil = perfil;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         if (perfil == null) {
@@ -32,8 +39,8 @@ public class PanelPerfil extends JPanel {
                 JPanel panelInfo = new JPanel();
                 panelInfo.setLayout(new BoxLayout(panelInfo, BoxLayout.X_AXIS));
 
-                JLabel nombreEtiqueta = new JLabel(perfil.getNombrePerfil());
-                JLabel añosEtiqueta = new JLabel("Años: "+perfil.getAños());
+                nombreEtiqueta = new JLabel(perfil.getNombrePerfil());
+                añosEtiqueta = new JLabel("Años: "+perfil.getAños());
 
                 panelInfo.add(Box.createHorizontalGlue());
                 panelInfo.add(nombreEtiqueta);
@@ -46,12 +53,12 @@ public class PanelPerfil extends JPanel {
                 JPanel panelStats = new JPanel();
                 panelStats.setLayout(new BoxLayout(panelStats, BoxLayout.Y_AXIS));
 
-                JLabel saludEtiqueta = new JLabel("[img] "+perfil.getSalud());
-                saludEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
-                JLabel espacioEtiqueta = new JLabel("[img] "+perfil.getFondos());
-                espacioEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
-                JLabel placeholderEtiqueta = new JLabel("[img] "+perfil.getAlmacen().getEspacioAlmacen());
-                placeholderEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT);
+                saludEtiqueta = new JLabel("[img] "+perfil.getSalud());
+                    saludEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
+                espacioEtiqueta = new JLabel("[img] "+perfil.getFondos());
+                    espacioEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
+                placeholderEtiqueta = new JLabel("[img] "+perfil.getAlmacen().getEspacioAlmacen());
+                    placeholderEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT);
 
                 panelStats.add(saludEtiqueta);
                 panelStats.add(espacioEtiqueta);
@@ -65,7 +72,7 @@ public class PanelPerfil extends JPanel {
 
         // Panel Botones
 
-            JPanel panelBtns = new PanelBotonesJuego();
+            JPanel panelBtns = new PanelBotonesJuego(this);
 
         // Bordes
 
@@ -90,4 +97,14 @@ public class PanelPerfil extends JPanel {
             add(Box.createVerticalStrut(20));
     }
 
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void actualizarInformacion() {
+        añosEtiqueta.setText("Años: " + perfil.getAños());
+        saludEtiqueta.setText("[img] " + perfil.getSalud());
+    }
+
 }
+
