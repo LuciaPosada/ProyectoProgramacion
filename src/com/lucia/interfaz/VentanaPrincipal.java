@@ -38,7 +38,12 @@ public class VentanaPrincipal extends JFrame {
             panelPrueba2.setBackground(Color.MAGENTA);
 
         // Funcionalidad botones del panelInicio
-	//Pendiente de cambios
+        panelInicio.getBtnNuevaPrt().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mostrarDialogPedirNombre();
+            }
+        });
         panelInicio.getBtnCargarPrt().addActionListener(e -> cardLayout.show(getContentPane(), "panelPartida"));
         panelInicio.getBtnPuntuacion().addActionListener(e -> cardLayout.show(getContentPane(), "panelP2"));
 
