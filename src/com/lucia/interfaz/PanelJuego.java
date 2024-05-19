@@ -21,6 +21,9 @@ public class PanelJuego extends JPanel {
         actualizarPanelPerfil();
     }
 
+   /**
+    * Actualiza el panel del perfil 
+    */
     private void actualizarPanelPerfil() {
         if (panelPerfil != null) {
             remove(panelPerfil);
