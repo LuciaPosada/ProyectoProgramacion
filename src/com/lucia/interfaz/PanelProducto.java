@@ -2,12 +2,9 @@ package com.lucia.interfaz;
 
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import com.lucia.producto.Producto;
 
@@ -41,6 +38,21 @@ public class PanelProducto extends JPanel{
         
             comprarBtn = new JButton("Comprar");
             venderBtn = new JButton("Vender");
+
+
+            comprarBtn.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    mostrarDialogCompraVenta();
+                }
+            });
+
+            venderBtn.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    mostrarDialogCompraVenta();
+                }
+            });
 
         // Borde
 
@@ -86,6 +98,14 @@ public class PanelProducto extends JPanel{
                 precioActualLabel.setForeground(Color.RED);
                 break;
         }
+    }
+
+    /**
+     * Muestra el dialogo de compra/venta
+     */
+    private void mostrarDialogCompraVenta() {
+        DialogCompraVenta dialog = new DialogCompraVenta();
+        dialog.setVisible(true);
     }
 
 }
