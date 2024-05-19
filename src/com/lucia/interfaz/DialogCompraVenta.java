@@ -6,14 +6,14 @@ import java.awt.FlowLayout;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class PanelCompraVenta extends JDialog {
+public class DialogCompraVenta extends JDialog {
 
     private JButton cancelarBtn;
     private JButton aceptarBtn;
     private JSlider slider;
     private JTextField valorSeleccionadoTxt;
 
-    public PanelCompraVenta() { // ToDo: Buscar como evitar que se pueda interactuar con el programa mientras este panel este activo
+    public DialogCompraVenta() {
         setTitle("Comprar/Vender"); // Pendiente de revision
         setSize(400, 200); 
         setLocationRelativeTo(null);
@@ -75,9 +75,9 @@ public class PanelCompraVenta extends JDialog {
         setVisible(true);
     }
 
-    public static void main(String[] args) { // Prueba
+    public static void main(String[] args) { // Preuba
         SwingUtilities.invokeLater(() -> {
-            new PanelCompraVenta();
+            new DialogCompraVenta();
         });
     }
 }
