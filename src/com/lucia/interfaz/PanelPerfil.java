@@ -18,6 +18,10 @@ public class PanelPerfil extends JPanel {
     public PanelPerfil(Perfil perfil) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
+        if (perfil == null) {
+            throw new IllegalArgumentException("Perfil null"); /// Debug
+        }
+
         // Panel Contenedor
 
             JPanel panelContenedor = new JPanel();
