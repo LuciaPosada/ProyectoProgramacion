@@ -52,4 +52,7 @@ public class DialogPedirNombre extends JDialog{ // ToDo: Mejorar la disposicion 
         return nombrePartida;
     }
 
+    public boolean isConfirmacion() {
+        return confirmacion;
+    }
 }
