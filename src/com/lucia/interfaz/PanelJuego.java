@@ -18,9 +18,6 @@ public class PanelJuego extends JPanel {
         panelPerfil = new PanelPerfil(perfil);
         PanelTabs panelTabs = new PanelTabs();
 
-        panelPerfil.setBackground(Color.BLUE);
-        panelTabs.setBackground(Color.ORANGE);
-
         add(panelPerfil, BorderLayout.WEST);
         add(panelTabs, BorderLayout.CENTER);
     }
