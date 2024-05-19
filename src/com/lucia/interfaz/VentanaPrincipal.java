@@ -55,6 +55,9 @@ public class VentanaPrincipal extends JFrame {
         cardLayout.show(getContentPane(), "panelInicio");
     }
 
+   /**
+    * Muestra el dialogo de pedir nombre
+    */
     private void mostrarDialogPedirNombre() {
         DialogPedirNombre dialog = new DialogPedirNombre(this);
         dialog.setVisible(true);
