@@ -13,7 +13,7 @@ import javax.swing.border.Border;
 
 public class PanelPerfil extends JPanel {
 
-    public PanelPerfil() {
+    public PanelPerfil(Perfil perfil) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         // Panel Contenedor
