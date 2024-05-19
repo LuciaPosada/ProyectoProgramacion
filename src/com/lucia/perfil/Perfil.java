@@ -29,7 +29,7 @@ public class Perfil {
 
     public Perfil(String nombrePerfil) {
         this.nombrePerfil = nombrePerfil;
-        this.fondos = 500;
+        this.fondos = 1500;
         this.salud = 100;
         this.años = 18;
         this.almacen = new Almacen();
