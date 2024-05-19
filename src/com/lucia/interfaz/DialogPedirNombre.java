@@ -48,4 +48,8 @@ public class DialogPedirNombre extends JDialog{ // ToDo: Mejorar la disposicion 
         add(panel, BorderLayout.CENTER);
     }
 
+    public String getNombrePartida() {
+        return nombrePartida;
+    }
+
 }
