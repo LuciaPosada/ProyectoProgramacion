@@ -101,9 +101,13 @@ public class PanelPerfil extends JPanel {
         return perfil;
     }
 
+    /**
+     * Actualiza la información mostrada en el panel con los valores actuales del perfil
+     */
     public void actualizarInformacion() {
         añosEtiqueta.setText("Años: " + perfil.getAños());
         saludEtiqueta.setText("[img] " + perfil.getSalud());
+        // Faltan etiquetas
     }
 
 }
