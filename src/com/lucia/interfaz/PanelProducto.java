@@ -22,7 +22,6 @@ public class PanelProducto extends JPanel{
 
     public PanelProducto(Producto producto){ // ToDo: Cambiar placeholders
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-        setBackground(Color.PINK); // prueba
 
         Font fuente = new Font("Arial", Font.BOLD, 16);
 
