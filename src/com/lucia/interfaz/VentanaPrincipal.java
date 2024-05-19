@@ -3,6 +3,8 @@ package com.lucia.interfaz;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -36,7 +38,7 @@ public class VentanaPrincipal extends JFrame {
             panelPrueba2.setBackground(Color.MAGENTA);
 
         // Funcionalidad botones del panelInicio
-        panelInicio.getBtnNuevaPrt().addActionListener(e -> cardLayout.show(getContentPane(), "panelPartida"));
+	//Pendiente de cambios
         panelInicio.getBtnCargarPrt().addActionListener(e -> cardLayout.show(getContentPane(), "panelPartida"));
         panelInicio.getBtnPuntuacion().addActionListener(e -> cardLayout.show(getContentPane(), "panelP2"));
 
@@ -45,6 +47,15 @@ public class VentanaPrincipal extends JFrame {
         add(panelPrueba2, "panelP2");
 
         cardLayout.show(getContentPane(), "panelInicio");
+    }
+
+    private void mostrarDialogPedirNombre() {
+        DialogPedirNombre dialog = new DialogPedirNombre(this);
+        dialog.setVisible(true);
+        if (dialog.isConfirmacion()) {
+            String nombrePartida = dialog.getNombrePartida();
+            cardLayout.show(getContentPane(), "panelPartida");
+        }
     }
 
     public void mostrarPanelInicio() {
