@@ -3,10 +3,15 @@ package com.lucia.interfaz;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import com.lucia.app.Serializador;
+import com.lucia.perfil.Perfil;
 
 public class VentanaPrincipal extends JFrame {
+
+	private static HashMap<String, Perfil> partidasGuardadas = new HashMap<>();
 
     private PanelInicio panelInicio;
     private PanelJuego panelPartida; 
