@@ -58,7 +58,7 @@ public class VentanaPrincipal extends JFrame {
         DialogPedirNombre dialog = new DialogPedirNombre(this);
         dialog.setVisible(true);
         if (dialog.isConfirmacion()) {
-            String nombrePartida = dialog.getNombrePartida();
+            panelPartida.setPerfil(new Perfil(dialog.getNombrePartida()));
             cardLayout.show(getContentPane(), "panelPartida");
         }
     }
