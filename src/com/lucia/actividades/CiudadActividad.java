@@ -14,6 +14,7 @@ public class CiudadActividad {
      * @return la nueva cantidad de salud
      */
     public static int irHospital(int saludActual) {
+        costoSalud = aumentarCosto();
         return saludActual+CANTIDAD_AUMENTAR_SALUD;
     }
 
