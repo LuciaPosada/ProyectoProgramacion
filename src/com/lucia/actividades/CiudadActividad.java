@@ -26,7 +26,7 @@ public class CiudadActividad {
      * @return la nueva cantidad de salud
      */
     public static int irHospital(int saludActual) {
-        costoSalud = aumentarCosto();
+        costoSalud = aumentarCosto("Salud");
         return saludActual+CANTIDAD_AUMENTAR_SALUD;
     }
 
@@ -36,7 +36,7 @@ public class CiudadActividad {
      * @return la nueva cantidad de espacio del almacen
      */
     public static int aumentarEspacio(int espacioActual) {
-        costoEspacio = aumentarCosto();
+        costoEspacio = aumentarCosto("Espacio");
         return espacioActual+CANTIDAD_AUMENTAR_ESPACIO;
     }
 
@@ -45,16 +45,25 @@ public class CiudadActividad {
      * @return el dinero ganado
      */
     public static int calcularPremioLoteria() { //ToDo: Buscar manera de reducir las posibilidades de generar cantidades altas
-        costoLoteria = aumentarCosto();
+        costoLoteria = aumentarCosto("Loteria");
         Random random = new Random();
         int premio = random.nextInt(MAX_GANANCIAS_LOTERIA - MIN_GANANCIAS_LOTERIA + 1) + MIN_GANANCIAS_LOTERIA;
         return premio;
     }
+
     /**
      * Aumenta el costo financiero
      * @return el nuevo costo
      */
-    private static int aumentarCosto() {
-        return (int) (costoSalud*MULTIPLICADOR_COSTO);
+    private static int aumentarCosto(String opcion) {
+        switch(opcion){
+            case "Loteria":
+                return (int) (costoLoteria*MULTIPLICADOR_COSTO);
+            case "Espacio":
+                return (int) (costoEspacio*MULTIPLICADOR_COSTO);
+            case "Salud":
+                return (int) (costoSalud*MULTIPLICADOR_COSTO);
+        }
+        return 0;
     }
 }
