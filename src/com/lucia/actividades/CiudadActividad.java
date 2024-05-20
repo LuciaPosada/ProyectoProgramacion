@@ -58,11 +58,11 @@ public class CiudadActividad {
     private static int aumentarCosto(String opcion) {
         switch(opcion){
             case "Loteria":
-                return (int) (costoLoteria*MULTIPLICADOR_COSTO);
+                return (int) (costoLoteria/MULTIPLICADOR_COSTO);
             case "Espacio":
-                return (int) (costoEspacio*MULTIPLICADOR_COSTO);
+                return (int) (costoEspacio/MULTIPLICADOR_COSTO);
             case "Salud":
-                return (int) (costoSalud*MULTIPLICADOR_COSTO);
+                return (int) (costoSalud/MULTIPLICADOR_COSTO);
         }
         return 0;
     }
