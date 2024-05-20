@@ -26,5 +26,13 @@ public class CiudadActividadesTest {
     public void comprobacionAumentarCostoSalud() {
         Assertions.assertEquals(500, CiudadActividad.aumentarCosto("Salud"));
     }
+    @Test
+    public void comprobacionAumentarCostoEspacio() {
+        Assertions.assertEquals(250, CiudadActividad.aumentarCosto("Espacio"));
+    }
 
+    @Test
+    public void comprobacionAumentarCostoLoteria() {
+        Assertions.assertEquals(2500, CiudadActividad.aumentarCosto("Loteria"));
+    }
 }
