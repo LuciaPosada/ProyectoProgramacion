@@ -14,4 +14,9 @@ public class CompraVentaTest {
     public void comprobacionComprobarDineroDisponibleMayorQuePrecioTotal() {
         Assertions.assertEquals(true, CompraVenta.comprobarDineroDisponible(367,408));
     }
+
+    @Test
+    public void comprobacionComprobarDineroDisponibleMenorQuePrecioTotal() {
+        Assertions.assertEquals(false, CompraVenta.comprobarDineroDisponible(597,408));
+    }
 }
