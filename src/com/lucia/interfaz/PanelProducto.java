@@ -46,14 +46,14 @@ public class PanelProducto extends JPanel{
             comprarBtn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    mostrarDialogCompraVenta();
+                    mostrarDialogCompraVenta(producto);
                 }
             });
 
             venderBtn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    mostrarDialogCompraVenta();
+                    mostrarDialogCompraVenta(producto);
                 }
             });
 
@@ -106,8 +106,8 @@ public class PanelProducto extends JPanel{
     /**
      * Muestra el dialogo de compra/venta
      */
-    private void mostrarDialogCompraVenta() {
-        DialogCompraVenta dialog = new DialogCompraVenta(parentFrame);
+    private void mostrarDialogCompraVenta(Producto producto) {
+        DialogCompraVenta dialog = new DialogCompraVenta(parentFrame,producto);
         dialog.setVisible(true);
     }
 
