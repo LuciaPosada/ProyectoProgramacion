@@ -12,7 +12,7 @@ public class Mercado {
 
     // CONSTRUCTOR
 
-    public Mercado() {
+    static {
         añadirProductos();
     }
 
@@ -20,14 +20,14 @@ public class Mercado {
      * Añade productos predefinidos al map de productos en venta
      */
     private static void añadirProductos() { // ToDo: Cambiar los placeholders
-        productosEnVenta.put("Prueba1", new Producto("Prueba1", 10, 5));
-        productosEnVenta.put("Prueba2", new Producto("Prueba2", 15, 25));
-        productosEnVenta.put("Prueba3", new Producto("Prueba3", 45, 7));
-        productosEnVenta.put("Prueba5", new Producto("Prueba5", 35, 8));
-        productosEnVenta.put("Prueba6", new Producto("Prueba6", 95, 1));
-        productosEnVenta.put("Prueba7", new Producto("Prueba7", 36, 19));
-        productosEnVenta.put("Prueba8", new Producto("Prueba8", 104, 36));
-        productosEnVenta.put("Prueba9", new Producto("Prueba9", 265, 3));
+        productosEnVenta.put("Mechero", new Producto("Mechero", 10, 500));
+        productosEnVenta.put("Tetera", new Producto("Tetera", 34, 250));
+        productosEnVenta.put("Aceite", new Producto("Aceite", 57, 120));
+        productosEnVenta.put("Vestido", new Producto("Vestido", 85, 85));
+        productosEnVenta.put("Vino", new Producto("Vino", 130, 30));
+        productosEnVenta.put("Caviar", new Producto("Caviar", 200, 19));
+        productosEnVenta.put("Colgante", new Producto("Colgante", 404, 9));
+        productosEnVenta.put("Consola", new Producto("Consola", 698, 5));
     }
 
     /**
