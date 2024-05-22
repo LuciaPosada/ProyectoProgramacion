@@ -8,11 +8,16 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import com.lucia.perfil.ContadorAños;
+import com.lucia.perfil.Perfil;
 
 
 public class PanelBotonesJuego extends JPanel {
 
-    public PanelBotonesJuego() {
+    private PanelPerfil panelPerfil;
+
+    public PanelBotonesJuego(PanelPerfil panelPerfil) {
+        this.panelPerfil = panelPerfil;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         JButton btnVolver = new JButton("Volver al Inicio");
@@ -39,7 +44,10 @@ public class PanelBotonesJuego extends JPanel {
                     VentanaPrincipal ventanaPrincipal = (VentanaPrincipal) getTopLevelAncestor();
                     ventanaPrincipal.mostrarPanelInicio();
                 } else if (button.getText().equals("Avanzar Año")) {
-                    // Aqui acciones Avanzar Año
+                    Perfil perfil = panelPerfil.getPerfil();
+                    perfil.setAños(ContadorAños.sumarAño(perfil.getAños()));
+                    perfil.setSalud(ContadorAños.empeorarSalud(perfil.getSalud(), perfil.getAños()));
+                    panelPerfil.actualizarInformacion();
                 }
             }
         });
