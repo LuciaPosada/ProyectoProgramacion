@@ -76,4 +76,3 @@ public class DialogCompraVenta extends JDialog {
         setVisible(true);
     }
 }
-

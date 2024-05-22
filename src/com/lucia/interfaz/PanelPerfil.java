@@ -111,4 +111,3 @@ public class PanelPerfil extends JPanel {
     }
 
 }
-

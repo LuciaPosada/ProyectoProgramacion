@@ -13,6 +13,7 @@ public class PanelJuego extends JPanel {
         setLayout(new BorderLayout());
 
         PanelTabs panelTabs = new PanelTabs();
+        
         add(panelTabs, BorderLayout.CENTER);
     }
 

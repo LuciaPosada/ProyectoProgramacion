@@ -1,4 +1,3 @@
-
 package com.lucia.interfaz;
 
 import java.awt.CardLayout;
@@ -13,10 +12,10 @@ import com.lucia.perfil.Perfil;
 
 public class VentanaPrincipal extends JFrame {
 
-	private static HashMap<String, Perfil> partidasGuardadas = new HashMap<>();
+    private static HashMap<String, Perfil> partidasGuardadas = new HashMap<>();
 
     private PanelInicio panelInicio;
-    private PanelJuego panelPartida; 
+    private PanelJuego panelPartida;
     private JPanel panelPrueba2; // Placeholder - Panel Puntuaciones
     private CardLayout cardLayout;
 
@@ -25,10 +24,10 @@ public class VentanaPrincipal extends JFrame {
         setSize(700, 350);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-	setResizable(false);
+        setResizable(false);
 
-	partidasGuardadas = Serializador.cargarDatos("placeholder.txt");
-        
+        partidasGuardadas = Serializador.cargarDatos("placeholder.txt");
+
         cardLayout = new CardLayout();
         setLayout(cardLayout);
 
@@ -36,7 +35,7 @@ public class VentanaPrincipal extends JFrame {
         panelInicio = new PanelInicio();
         panelPartida = new PanelJuego();
         panelPrueba2 = new JPanel();
-            panelPrueba2.setBackground(Color.MAGENTA);
+        panelPrueba2.setBackground(Color.MAGENTA);
 
         // Funcionalidad botones del panelInicio
         panelInicio.getBtnNuevaPrt().addActionListener(new ActionListener() {
@@ -55,9 +54,9 @@ public class VentanaPrincipal extends JFrame {
         cardLayout.show(getContentPane(), "panelInicio");
     }
 
-   /**
-    * Muestra el dialogo de pedir nombre
-    */
+    /**
+     * Muestra el dialogo de pedir nombre
+     */
     private void mostrarDialogPedirNombre() {
         DialogPedirNombre dialog = new DialogPedirNombre(this);
         dialog.setVisible(true);
