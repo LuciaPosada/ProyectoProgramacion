@@ -33,7 +33,7 @@ public class DialogPedirNombre extends JDialog{ // ToDo: Mejorar la disposicion 
         confirmarBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                nombrePartida = textField.getText().trim();
+                nombrePartida = nombreTextField.getText().trim();
                 if (!nombrePartida.isEmpty()) {
                     confirmacion = true;
                     dispose();
