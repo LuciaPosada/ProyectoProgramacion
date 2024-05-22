@@ -44,7 +44,12 @@ public class VentanaPrincipal extends JFrame {
                 mostrarDialogPedirNombre();
             }
         });
-        panelInicio.getBtnCargarPrt().addActionListener(e -> cardLayout.show(getContentPane(), "panelPartida"));
+        panelInicio.getBtnCargarPrt().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mostrarDialogPedirNombre();
+            }
+        });
         panelInicio.getBtnPuntuacion().addActionListener(e -> cardLayout.show(getContentPane(), "panelP2"));
 
         add(panelInicio, "panelInicio");
@@ -70,7 +75,7 @@ public class VentanaPrincipal extends JFrame {
         cardLayout.show(getContentPane(), "panelInicio");
     }
 
-    public static void main(String[] args) { // Prueba
+    public static void main(String[] args) {
         VentanaPrincipal ventana = new VentanaPrincipal();
         ventana.setVisible(true);
     }
