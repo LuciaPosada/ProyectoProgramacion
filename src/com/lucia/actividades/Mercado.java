@@ -19,7 +19,7 @@ public class Mercado {
     /**
      * Añade productos predefinidos al map de productos en venta
      */
-    private static void añadirProductos() { // ToDo: Cambiar los placeholders
+    private static void añadirProductos() {
         productosEnVenta.put("Mechero", new Producto("Mechero", 10, 500));
         productosEnVenta.put("Tetera", new Producto("Tetera", 34, 250));
         productosEnVenta.put("Aceite", new Producto("Aceite", 57, 120));
