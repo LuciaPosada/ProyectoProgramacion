@@ -8,18 +8,16 @@ public class PanelJuego extends JPanel {
 
     private Perfil perfil;
     private PanelPerfil panelPerfil;
+    private PanelTabs panelTabs;
 
     public PanelJuego() {
         setLayout(new BorderLayout());
-
-        PanelTabs panelTabs = new PanelTabs();
-        
-        add(panelTabs, BorderLayout.CENTER);
     }
 
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
         actualizarPanelPerfil();
+        actualizarPanelTabs();
     }
 
    /**
@@ -31,6 +29,19 @@ public class PanelJuego extends JPanel {
         }
         panelPerfil = new PanelPerfil(perfil);
         add(panelPerfil, BorderLayout.WEST);
+        revalidate();
+        repaint();
+    }
+    
+   /**
+    * Actualiza el panel del pestañas
+    */
+    private void actualizarPanelTabs() {
+        if (panelTabs != null) {
+            remove(panelTabs);
+        }
+        panelTabs = new PanelTabs();
+        add(panelTabs, BorderLayout.CENTER);
         revalidate();
         repaint();
     }
