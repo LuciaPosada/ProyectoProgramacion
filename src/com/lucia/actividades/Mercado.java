@@ -1,6 +1,7 @@
 package com.lucia.actividades;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import com.lucia.producto.Producto;
@@ -33,7 +34,7 @@ public class Mercado {
      * Obtiene el mapa de productos en venta
      * @return Un mapa de productos
      */
-    public static HashMap<String, Producto> getProductosEnVenta() {
+    public static Map<String, Producto> getProductosEnVenta() {
         return productosEnVenta;
     }
 
