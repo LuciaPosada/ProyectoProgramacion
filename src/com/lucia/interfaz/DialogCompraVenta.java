@@ -1,5 +1,6 @@
 package com.lucia.interfaz;
 
+import com.lucia.producto.Producto;
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -11,9 +12,9 @@ public class DialogCompraVenta extends JDialog {
     private JButton cancelarBtn;
     private JButton aceptarBtn;
     private JSlider slider;
-    private JTextField valorSeleccionadoTxt;
+    private JTextField cantidadSeleccionadaTxt;
 
-    public DialogCompraVenta(JFrame parent) {
+    public DialogCompraVenta(JFrame parent,Producto producto) {
         super(parent, true);
         setTitle("Comprar/Vender"); // Pendiente de revision
         setSize(400, 200); 
@@ -29,7 +30,7 @@ public class DialogCompraVenta extends JDialog {
 
                 // Slider
 
-                slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 1); // ToDo: Cambiar maximo
+                slider = new JSlider(JSlider.HORIZONTAL, 1, producto.getCantidad(), 1); // ToDo: Arreglar que el maximo no se vea
                 slider.setMajorTickSpacing(20);
                 slider.setMinorTickSpacing(5);
                 slider.setPaintTicks(true);
@@ -37,23 +38,22 @@ public class DialogCompraVenta extends JDialog {
 
                 // Numero del Slider - JTextField
 
-                valorSeleccionadoTxt = new JTextField(5);
-                valorSeleccionadoTxt.setEditable(false);
-                valorSeleccionadoTxt.setHorizontalAlignment(JTextField.CENTER);
+                cantidadSeleccionadaTxt = new JTextField(5);
+                cantidadSeleccionadaTxt.setEditable(false);
+                cantidadSeleccionadaTxt.setHorizontalAlignment(JTextField.CENTER);
 
                 slider.addChangeListener(new ChangeListener() {
                     public void stateChanged(ChangeEvent e) {
-                        int valorSeleccionado = slider.getValue();
-                        valorSeleccionadoTxt.setText(Integer.toString(valorSeleccionado));
+                        actualizarCantidadSeleccionadaTxt(slider.getValue());
                     }
                 });
 
                 // JLabel
 
-                JLabel cantidadDinero = new JLabel("[precio]");
+                JLabel cantidadDinero = new JLabel("[precio] €");
 
             JPanel informacionPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-            informacionPanel.add(valorSeleccionadoTxt);
+            informacionPanel.add(cantidadSeleccionadaTxt);
             informacionPanel.add(cantidadDinero);
 
             sliderPanel.add(slider, BorderLayout.CENTER);
@@ -74,5 +74,9 @@ public class DialogCompraVenta extends JDialog {
 
         setContentPane(panel);
         setVisible(true);
+    }
+    
+    public void actualizarCantidadSeleccionadaTxt(int cantidad){
+        cantidadSeleccionadaTxt.setText(Integer.toString(cantidad));
     }
 }
