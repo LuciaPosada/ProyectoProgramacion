@@ -35,4 +35,26 @@ public class Puntuaciones {
         }
     }
 
+        public static Puntuacion obtenerPuntuacionPorNombre(String nombreBuscar) {
+        Puntuacion puntuacionEncontrada = null;
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            String query = "SELECT nompart,puntuaciones FROM public.puntuaciones WHERE nombre = ?";
+            try (PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setString(1, nombreBuscar);
+
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        String nombre = resultSet.getString("nompart");
+                        int puntuacionBase = resultSet.getInt("puntuacion");
+                        puntuacionEncontrada = new Puntuacion(puntuacionBase,nombre);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener puntuacion: " + e.getMessage());
+        }
+        return puntuacionEncontrada;
+    }
+
 }
