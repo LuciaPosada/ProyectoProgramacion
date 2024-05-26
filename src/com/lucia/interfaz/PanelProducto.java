@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.lucia.actividades.Mercado;
 import com.lucia.producto.Producto;
 
 public class PanelProducto extends JPanel{
@@ -17,11 +18,14 @@ public class PanelProducto extends JPanel{
     private JButton comprarBtn;
     private JButton venderBtn;
 
+    private Producto producto;
+
     private JFrame parentFrame; // Para pasarselo al panel CompraVenta
 
     public PanelProducto(Producto producto){ // ToDo: Cambiar placeholders
-        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        this.producto = producto;
         this.parentFrame = parentFrame;
+        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
         Font fuente = new Font("Arial", Font.BOLD, 16);
 
@@ -76,6 +80,7 @@ public class PanelProducto extends JPanel{
         add(comprarBtn);
         add(Box.createHorizontalStrut(5));
         add(venderBtn);
+
     }
 
     /**
@@ -101,6 +106,25 @@ public class PanelProducto extends JPanel{
                 precioActualLabel.setForeground(Color.RED);
                 break;
         }
+    }
+
+    /**
+     * Actualiza el precio del producto en la interfaz en base a el aumento o disminucion de este
+     */
+    public void actualizarPrecio() {
+        int nuevoPrecio = producto.getPrecio();
+        int precioAnterior = Integer.parseInt(precioActualLabel.getText());
+        String cambioPrecio;
+
+        if (nuevoPrecio > precioAnterior) {
+            cambioPrecio = "aumento";
+        } else if (nuevoPrecio < precioAnterior) {
+            cambioPrecio = "disminucion";
+        } else {
+            cambioPrecio = "igual";
+        }
+
+        setPrecioLabel(String.valueOf(nuevoPrecio), cambioPrecio);
     }
 
     /**
