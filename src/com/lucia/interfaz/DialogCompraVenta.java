@@ -70,6 +70,20 @@ public class DialogCompraVenta extends JDialog {
         cancelarBtn = new JButton("Cancelar");
         aceptarBtn = new JButton("Aceptar");
 
+        cancelarBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+        aceptarBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
         btnPanel.add(cancelarBtn);
         btnPanel.add(aceptarBtn);
 
