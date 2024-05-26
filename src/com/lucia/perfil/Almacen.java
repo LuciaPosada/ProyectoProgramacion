@@ -1,11 +1,12 @@
 
 package com.lucia.perfil;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import com.lucia.producto.Producto;
 
-public class Almacen {
+public class Almacen implements Serializable{
     /**
      * Espacio disponible para almacenar Productos
      */

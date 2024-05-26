@@ -1,7 +1,9 @@
 
 package com.lucia.perfil;
 
-public class Perfil {
+import java.io.Serializable;
+
+public class Perfil implements Serializable{
     /**
      * Nombre del perfil de la partida
      */
