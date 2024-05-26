@@ -72,7 +72,7 @@ public class Mercado {
             int nuevoPrecio = cambiarPrecios(producto.getPrecioMax(), producto.getPrecioMin());
             producto.setPrecio(nuevoPrecio);
 
-            int nuevaCantiadad = renovarCantidades();
+            int nuevaCantiadad = renovarCantidades(producto.getCantidadMax(), producto.getCantidadMin());
             producto.setCantidad(nuevaCantiadad);
         }
         notificarObservadores();
