@@ -1,14 +1,14 @@
 package com.lucia.actividades;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
+import com.lucia.interfaz.PanelProducto;
 import com.lucia.producto.Producto;
 
 public class Mercado {
 
     private static HashMap<String, Producto> productosEnVenta = new HashMap<>();
+    private static List<PanelProducto> observadores = new ArrayList<>();
 
     // CONSTRUCTOR
 
@@ -62,4 +62,16 @@ public class Mercado {
         int cantNueva = random.nextInt(cantidadMax - cantidadMin + 1) + cantidadMin;
         return cantNueva;
     }
+
+    /**
+     * 
+     */
+    public static void actualizarProductos() {
+        for (Map.Entry<String, Producto> entry : productosEnVenta.entrySet()) {
+            Producto producto = entry.getValue();
+            int nuevoPrecio = cambiarPrecios(producto.getPrecio(), producto.getPrecioMax(), producto.getPrecioMin());
+            producto.setPrecio(nuevoPrecio);
+        }
+    }
+    
 }
