@@ -27,7 +27,7 @@ public class Mercado {
         productosEnVenta.put("Vino", new Producto("Vino", 130, 30));
         productosEnVenta.put("Caviar", new Producto("Caviar", 200, 19));
         productosEnVenta.put("Colgante", new Producto("Colgante", 404, 9));
-        productosEnVenta.put("Consola", new Producto("Consola", 698, 5));
+        productosEnVenta.put("Consola", new Producto("Consola", 698, 3));
     }
 
     /**
@@ -40,12 +40,11 @@ public class Mercado {
 
     /**
      * Genera un nuevo precio aleatorio dentro del rango [precioMin, precioMax]
-     * @param precio El precio actual
      * @param precioMax El precio máximo permitido
      * @param precioMin El precio mínimo permitido
      * @return El nuevo precio
      */
-    public static int cambiarPrecios(int precio,int precioMax,int precioMin) {
+    public static int cambiarPrecios(int precioMax,int precioMin) {
         Random random = new Random();
         int precioNuevo = random.nextInt(precioMax - precioMin + 1) + precioMin;
         return precioNuevo;
@@ -69,8 +68,12 @@ public class Mercado {
     public static void actualizarProductos() {
         for (Map.Entry<String, Producto> entry : productosEnVenta.entrySet()) {
             Producto producto = entry.getValue();
-            int nuevoPrecio = cambiarPrecios(producto.getPrecio(), producto.getPrecioMax(), producto.getPrecioMin());
+
+            int nuevoPrecio = cambiarPrecios(producto.getPrecioMax(), producto.getPrecioMin());
             producto.setPrecio(nuevoPrecio);
+
+            int nuevaCantiadad = renovarCantidades();
+            producto.setCantidad(nuevaCantiadad);
         }
         notificarObservadores();
     }
