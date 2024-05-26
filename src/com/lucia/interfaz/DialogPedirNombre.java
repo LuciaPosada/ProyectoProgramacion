@@ -9,9 +9,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.BoxLayout;
+import javax.swing.Box;
+import javax.swing.border.EmptyBorder;
 
-public class DialogPedirNombre extends JDialog{ // ToDo: Mejorar la disposicion del panel
-    
+public class DialogPedirNombre extends JDialog {
+
     private String nombrePartida;
     private JTextField nombreTextField;
     private JButton confirmarBtn;
@@ -26,9 +29,16 @@ public class DialogPedirNombre extends JDialog{ // ToDo: Mejorar la disposicion 
         confirmacion = false;
 
         JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(new EmptyBorder(10, 10, 10, 10));
+
         JLabel label = new JLabel("Nombre de la partida:");
         nombreTextField = new JTextField(15);
         confirmarBtn = new JButton("Confirmar");
+
+        label.setAlignmentX(CENTER_ALIGNMENT);
+        nombreTextField.setAlignmentX(CENTER_ALIGNMENT);
+        confirmarBtn.setAlignmentX(CENTER_ALIGNMENT);
 
         confirmarBtn.addActionListener(new ActionListener() {
             @Override
@@ -42,7 +52,9 @@ public class DialogPedirNombre extends JDialog{ // ToDo: Mejorar la disposicion 
         });
 
         panel.add(label);
+        panel.add(Box.createVerticalStrut(10)); 
         panel.add(nombreTextField);
+        panel.add(Box.createVerticalStrut(10)); 
         panel.add(confirmarBtn);
 
         add(panel, BorderLayout.CENTER);
