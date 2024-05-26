@@ -75,6 +75,15 @@ public class VentanaPrincipal extends JFrame {
         cardLayout.show(getContentPane(), "panelInicio");
     }
 
+    /**
+     * Guarda el perfil en partidasGuardadas y serializa el HashMap
+     * @param perfil el perfil a guardar
+     */
+    public static void guardarPerfil(Perfil perfil) {
+        partidasGuardadas.put(perfil.getNombrePerfil(), perfil);
+        Serializador.guardarDatos("partidasGuardadas.txt", partidasGuardadas);
+    }
+
     public static void main(String[] args) {
         VentanaPrincipal ventana = new VentanaPrincipal();
         ventana.setVisible(true);
