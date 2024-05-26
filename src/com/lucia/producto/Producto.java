@@ -11,6 +11,14 @@ public class Producto {
      */
     private int cantidad;
     /**
+     * Cantidad del producto minima que puede haber del producto
+     */
+    private int cantidadMin;
+    /**
+     * Cantidad del producto maxima que puede haber del producto
+     */
+    private int cantidadMax;
+    /**
      * Precio unitario del producto
      */
     private int precio;
@@ -33,6 +41,8 @@ public class Producto {
         this.precioMin = calcularPrecioMin(precio);
         this.precioMax = calcularPrecioMax(precio);
         this.cantidad = cantidad;
+        this.cantidadMax =
+        this.cantidadMin =
     }
 
     // GETTER
