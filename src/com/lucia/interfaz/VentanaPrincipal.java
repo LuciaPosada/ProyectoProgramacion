@@ -71,8 +71,15 @@ public class VentanaPrincipal extends JFrame {
         }
     }
 
-    public void mostrarPanelInicio() {
-        cardLayout.show(getContentPane(), "panelInicio");
+    /**
+    * Crea una nueva partida y la agrega a partidasGuardadas.
+    * @param nombrePartida el nombre de la nueva partida
+    */
+    private void crearNuevaPartida(String nombrePartida) {
+        Perfil nuevoPerfil = new Perfil(nombrePartida);
+        panelPartida.setPerfil(nuevoPerfil);
+        partidasGuardadas.put(nombrePartida, nuevoPerfil);
+        cardLayout.show(getContentPane(), "panelPartida");
     }
 
     /**
@@ -82,6 +89,10 @@ public class VentanaPrincipal extends JFrame {
     public static void guardarPerfil(Perfil perfil) {
         partidasGuardadas.put(perfil.getNombrePerfil(), perfil);
         Serializador.guardarDatos("partidasGuardadas.txt", partidasGuardadas);
+    }
+
+    public void mostrarPanelInicio() {
+        cardLayout.show(getContentPane(), "panelInicio");
     }
 
     public static void main(String[] args) {
