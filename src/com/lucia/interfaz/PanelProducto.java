@@ -81,6 +81,8 @@ public class PanelProducto extends JPanel{
         add(Box.createHorizontalStrut(5));
         add(venderBtn);
 
+        // Oberver
+        Mercado.agregarObservador(this);
     }
 
     /**

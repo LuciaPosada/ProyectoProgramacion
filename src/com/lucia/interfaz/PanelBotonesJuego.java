@@ -8,6 +8,8 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import com.lucia.actividades.Mercado;
 import com.lucia.perfil.ContadorAños;
 import com.lucia.perfil.Perfil;
 
@@ -48,6 +50,7 @@ public class PanelBotonesJuego extends JPanel {
                     perfil.setAños(ContadorAños.sumarAño(perfil.getAños()));
                     perfil.setSalud(ContadorAños.empeorarSalud(perfil.getSalud(), perfil.getAños()));
                     panelPerfil.actualizarInformacion();
+                    Mercado.actualizarProductos();
                 }
             }
         });

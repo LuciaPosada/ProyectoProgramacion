@@ -72,6 +72,18 @@ public class Mercado {
             int nuevoPrecio = cambiarPrecios(producto.getPrecio(), producto.getPrecioMax(), producto.getPrecioMin());
             producto.setPrecio(nuevoPrecio);
         }
+        notificarObservadores();
     }
     
+
+    // Solucion precaria y temporal
+    public static void agregarObservador(PanelProducto observador) {
+        observadores.add(observador);
+    }
+
+    public static void notificarObservadores() {
+        for (PanelProducto observador : observadores) {
+            observador.actualizarPrecio();
+        }
+    }
 }
