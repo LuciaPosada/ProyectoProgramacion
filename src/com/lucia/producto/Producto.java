@@ -108,4 +108,13 @@ public class Producto {
         return (int) (precio - (precio * INTERVALO_DESCUENTO));
     }
 
+    /**
+     * Calcula la cantidad maxima que puede alcanzar el producto
+     * @param cantidad cantidad base del producto
+     * @return la cantidad maxima
+     */
+    private static int calcularCantidadMax(int cantidad) {
+        return (int) (cantidad + cantidad);
+    }
+
 }
