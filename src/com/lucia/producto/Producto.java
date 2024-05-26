@@ -41,8 +41,8 @@ public class Producto {
         this.precioMin = calcularPrecioMin(precio);
         this.precioMax = calcularPrecioMax(precio);
         this.cantidad = cantidad;
-        this.cantidadMax =
-        this.cantidadMin =
+        this.cantidadMax = calcularCantidadMax(cantidad);
+        this.cantidadMin = calcularCantidadMin(cantidad);
     }
 
     // GETTER
@@ -115,6 +115,14 @@ public class Producto {
      */
     private static int calcularCantidadMax(int cantidad) {
         return (int) (cantidad + cantidad);
+    }
+    /**
+     * Calcula la cantidad minima que puede alcanzar el producto
+     * @param cantidad cantidad base del producto
+     * @return la cantidad minima
+     */
+    private static int calcularCantidadMin(int cantidad) {
+        return (int) (cantidad - (cantidad/3));
     }
 
 }
