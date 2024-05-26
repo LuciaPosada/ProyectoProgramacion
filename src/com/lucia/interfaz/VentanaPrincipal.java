@@ -42,13 +42,13 @@ public class VentanaPrincipal extends JFrame {
         panelInicio.getBtnNuevaPrt().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mostrarDialogPedirNombre();
+                mostrarDialogPedirNombre(true);
             }
         });
         panelInicio.getBtnCargarPrt().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mostrarDialogPedirNombre();
+                mostrarDialogPedirNombre(false);
             }
         });
         panelInicio.getBtnPuntuacion().addActionListener(e -> cardLayout.show(getContentPane(), "panelP2"));
@@ -61,14 +61,19 @@ public class VentanaPrincipal extends JFrame {
     }
 
     /**
-     * Muestra el dialogo de pedir nombre
-     */
-    private void mostrarDialogPedirNombre() {
+    * Muestra el dialogo de pedir nombre y maneja la creación o carga de un perfil.
+    * @param nuevaPartida indica si se está creando una nueva partida (true) o cargando una existente (false)
+    */
+    private void mostrarDialogPedirNombre(boolean nuevaPartida) {
         DialogPedirNombre dialog = new DialogPedirNombre(this);
         dialog.setVisible(true);
         if (dialog.isConfirmacion()) {
-            panelPartida.setPerfil(new Perfil(dialog.getNombrePartida()));
-            cardLayout.show(getContentPane(), "panelPartida");
+            String nombrePartida = dialog.getNombrePartida();
+            if (nuevaPartida) {
+                crearNuevaPartida(nombrePartida);
+            } else {
+                cargarPartidaExistente(nombrePartida);
+            }
         }
     }
 
