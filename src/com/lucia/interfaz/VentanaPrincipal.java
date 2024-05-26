@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import com.lucia.app.Serializador;
 import com.lucia.perfil.Perfil;
@@ -80,6 +81,20 @@ public class VentanaPrincipal extends JFrame {
         panelPartida.setPerfil(nuevoPerfil);
         partidasGuardadas.put(nombrePartida, nuevoPerfil);
         cardLayout.show(getContentPane(), "panelPartida");
+    }
+
+    /**
+    * Carga una partida existente desde partidasGuardadas.
+    * @param nombrePartida el nombre de la partida a cargar
+    */
+    private void cargarPartidaExistente(String nombrePartida) {
+        Perfil perfilCargado = partidasGuardadas.get(nombrePartida);
+        if (perfilCargado != null) {
+            panelPartida.setPerfil(perfilCargado);
+            cardLayout.show(getContentPane(), "panelPartida");
+        } else {
+            JOptionPane.showMessageDialog(this, "Perfil no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
