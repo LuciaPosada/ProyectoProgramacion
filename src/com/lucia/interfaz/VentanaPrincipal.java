@@ -26,7 +26,7 @@ public class VentanaPrincipal extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
-        partidasGuardadas = Serializador.cargarDatos("placeholder.txt");
+        partidasGuardadas = Serializador.cargarDatos("partidasGuardadas.txt");
 
         cardLayout = new CardLayout();
         setLayout(cardLayout);
