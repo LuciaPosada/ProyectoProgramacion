@@ -4,6 +4,8 @@ import com.lucia.actividades.CompraVenta;
 import com.lucia.producto.Producto;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -46,6 +48,7 @@ public class DialogCompraVenta extends JDialog {
         slider.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 actualizarCantidadSeleccionadaTxt(slider.getValue());
+                actualizarCantidadDinero(slider.getValue(), producto.getPrecio());
             }
         });
 
@@ -79,5 +82,9 @@ public class DialogCompraVenta extends JDialog {
 
     private void actualizarCantidadSeleccionadaTxt(int cantidad) {
         cantidadSeleccionadaTxt.setText(Integer.toString(cantidad));
+    }
+
+    private void actualizarCantidadDinero(int cantidad, int precio) {
+        cantidadDinero.setText(CompraVenta.calcularPrecioTotal(cantidad, precio) + " €");
     }
 }
