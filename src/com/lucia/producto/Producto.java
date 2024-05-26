@@ -67,6 +67,14 @@ public class Producto {
         return cantidad;
     }
 
+    public int getCantidadMin() {
+        return cantidadMin;
+    }
+
+    public int getCantidadMax() {
+        return cantidadMax;
+    }
+
     // SETTER
 
     public void setNombreProducto(String nombreProducto) {
@@ -87,6 +95,14 @@ public class Producto {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public void setCantidadMax(int cantidadMax) {
+        this.cantidadMax = cantidadMax;
+    }
+
+    public void setCantidadMin(int cantidadMin) {
+        this.cantidadMin = cantidadMin;
     }
 
     // OTROS
