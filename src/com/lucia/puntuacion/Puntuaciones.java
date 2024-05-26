@@ -1,30 +1,60 @@
 
 package com.lucia.puntuacion;
 
-import java.util.HashMap;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Puntuaciones {
+
+    private static final String URL = "jdbc:postgresql://localhost:5432/proyecto";
+
+    private static final String USER = "postgres";
+
+    private static final String PASSWORD = "postgres";
     
-    public static HashMap<String,Puntuacion> puntuaciones = new HashMap<>();
+    public static void crearPuntuacion(String nombre,int puntuacion) {
 
-    /**
-     * Crea una puntuacion con los parametros especificados
-     * @param nombre variable para el nuevo objecto
-     * @param puntuacion variable para el nuevo objecto
-     * @return la nueva puntuacion recien creada
-     */
-    public static Puntuacion crearNuevaPuntuacion(String nombre,int puntuacion){
-        Puntuacion puntuacionNuevo = new Puntuacion(puntuacion,nombre);
-        puntuaciones.put("",puntuacionNuevo); // TODO: Metodo para generar claves en orden
-        return puntuacionNuevo;
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            String query = "INSERT INTO public.puntuaciones (nompart,puntuacion) VALUES (?, ?)";
+            PreparedStatement statement = conn.prepareStatement(query);
+            statement.setString(1, nombre);
+            statement.setInt(2, puntuacion);
+
+            int rowsInserted = statement.executeUpdate();
+
+            if (rowsInserted > 0) {
+                System.out.println("INSERT 1");
+            } else {
+                System.out.println("INSERT 0");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al añadir fila: " + e.getMessage());
+        }
     }
 
-    /**
-     * Obtiene la puntuación almacenada con la clave especificada.
-     * @param clave Clave de la puntuación a recuperar
-     * @return La puntuación asociada con la clave, o null si no existe.
-     */
-    public static Puntuacion getPuntuacion(String clave) {
-        return puntuaciones.get(clave);
+        public static Puntuacion obtenerPuntuacionPorNombre(String nombreBuscar) {
+        Puntuacion puntuacionEncontrada = null;
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            String query = "SELECT nompart,puntuaciones FROM public.puntuaciones WHERE nombre = ?";
+            try (PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setString(1, nombreBuscar);
+
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        String nombre = resultSet.getString("nompart");
+                        int puntuacionBase = resultSet.getInt("puntuacion");
+                        puntuacionEncontrada = new Puntuacion(puntuacionBase,nombre);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener puntuacion: " + e.getMessage());
+        }
+        return puntuacionEncontrada;
     }
+
 }
