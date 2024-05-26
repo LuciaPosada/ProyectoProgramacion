@@ -44,6 +44,8 @@ public class PanelBotonesJuego extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (button.getText().equals("Volver al Inicio")) {
                     VentanaPrincipal ventanaPrincipal = (VentanaPrincipal) getTopLevelAncestor();
+                    Perfil perfil = panelPerfil.getPerfil();
+                    VentanaPrincipal.guardarPerfil(perfil);
                     ventanaPrincipal.mostrarPanelInicio();
                 } else if (button.getText().equals("Avanzar Año")) {
                     Perfil perfil = panelPerfil.getPerfil();
