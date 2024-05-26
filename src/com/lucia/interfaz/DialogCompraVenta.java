@@ -35,7 +35,7 @@ public class DialogCompraVenta extends JDialog {
 
         slider = new JSlider(JSlider.HORIZONTAL, 1, producto.getCantidad(), 1); // ToDo: Arreglar que el maximo no se vea
         slider.setPaintTicks(false);
-        slider.setPaintLabels(false);
+        slider.setPaintLabels(false); // ToDo: Arregar las florituras del slider para que se vea bien indepedientemente del producto
 
         // Numero del Slider - JTextField
 
