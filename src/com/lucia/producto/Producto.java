@@ -112,7 +112,7 @@ public class Producto {
      * @param precio precio base del producto
      * @return el precio maximo
      */
-    private static int calcularPrecioMax(int precio) {
+    public static int calcularPrecioMax(int precio) {
         return (int) (precio + (precio * INTERVALO_DESCUENTO));
     }
     /**
@@ -120,7 +120,7 @@ public class Producto {
      * @param precio precio base del producto
      * @return el precio minimo
      */
-    private static int calcularPrecioMin(int precio) {
+    public static int calcularPrecioMin(int precio) {
         return (int) (precio - (precio * INTERVALO_DESCUENTO));
     }
 
@@ -129,7 +129,7 @@ public class Producto {
      * @param cantidad cantidad base del producto
      * @return la cantidad maxima
      */
-    private static int calcularCantidadMax(int cantidad) {
+    public static int calcularCantidadMax(int cantidad) {
         return (int) (cantidad + cantidad);
     }
     /**
@@ -137,7 +137,7 @@ public class Producto {
      * @param cantidad cantidad base del producto
      * @return la cantidad minima
      */
-    private static int calcularCantidadMin(int cantidad) {
+    public static int calcularCantidadMin(int cantidad) {
         return (int) (cantidad - (cantidad/3));
     }
 
