@@ -19,4 +19,9 @@ public class ProductoTest {
     public void comprobacionCalcularCantidadMax() {
         Assertions.assertEquals(70, Producto.calcularCantidadMax(35));
     }
+
+    @Test
+    public void comprobacionCalcularCantidadMin() {
+        Assertions.assertEquals(20, Producto.calcularCantidadMin(30));
+    }
 }
