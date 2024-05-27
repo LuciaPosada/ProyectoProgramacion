@@ -55,7 +55,7 @@ public class CiudadActividad {
      * Aumenta el costo financiero
      * @return el nuevo costo
      */
-    private static int aumentarCosto(String opcion) {
+    public static int aumentarCosto(String opcion) {
         switch(opcion){
             case "Loteria":
                 return (int) (costoLoteria/MULTIPLICADOR_COSTO);
@@ -66,4 +66,5 @@ public class CiudadActividad {
         }
         return 0;
     }
+
 }
