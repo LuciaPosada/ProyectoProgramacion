@@ -33,8 +33,8 @@ public class PanelProducto extends JPanel{
 
             nombreProductoLabel = new JLabel(producto.getNombreProducto());
             precioActualLabel = new JLabel(String.valueOf(producto.getPrecio()));
-            cantDisponibleMercado = new JLabel("[CantMercado]");
-            cantDisponibleAlmacen = new JLabel("[CantAlmacen]");
+            cantDisponibleMercado = new JLabel("[CantM]");
+            cantDisponibleAlmacen = new JLabel("[CantA]");
 
             nombreProductoLabel.setFont(fuente);
             precioActualLabel.setFont(fuente);

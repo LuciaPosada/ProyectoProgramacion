@@ -22,7 +22,7 @@ public class VentanaPrincipal extends JFrame {
 
     public VentanaPrincipal() {
         setTitle("Especulacion Financiera para Dummies");
-        setSize(700, 350);
+        setSize(620, 350);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
