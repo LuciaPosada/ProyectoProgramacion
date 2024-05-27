@@ -63,7 +63,7 @@ public class Mercado {
     }
 
     /**
-     * 
+     * Circula por los productos del mercado renovando sus precios y cantidades
      */
     public static void actualizarProductos() {
         for (Map.Entry<String, Producto> entry : productosEnVenta.entrySet()) {
