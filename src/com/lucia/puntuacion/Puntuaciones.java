@@ -18,7 +18,7 @@ public class Puntuaciones {
     public static void crearPuntuacion(String nombre,int puntuacion) {
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String query = "INSERT INTO public.puntuaciones (nompart,puntuacion) VALUES (?, ?)";
+            String query = "INSERT INTO public.\"puntuaciones\" (nompart,puntuacion) VALUES (?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
             statement.setString(1, nombre);
             statement.setInt(2, puntuacion);
@@ -35,11 +35,11 @@ public class Puntuaciones {
         }
     }
 
-        public static Puntuacion obtenerPuntuacionPorNombre(String nombreBuscar) {
+    public static Puntuacion obtenerPuntuacionPorNombre(String nombreBuscar) {
         Puntuacion puntuacionEncontrada = null;
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String query = "SELECT nompart,puntuaciones FROM public.puntuaciones WHERE nombre = ?";
+            String query = "SELECT nompart,puntuaciones FROM public.\"puntuaciones\" WHERE nombre = \"?\"";
             try (PreparedStatement statement = conn.prepareStatement(query)) {
                 statement.setString(1, nombreBuscar);
 
