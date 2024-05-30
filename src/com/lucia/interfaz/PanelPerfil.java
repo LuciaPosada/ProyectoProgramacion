@@ -92,7 +92,7 @@ public class PanelPerfil extends JPanel {
 
             add(Box.createVerticalGlue());
             add(panelContenedor);
-            add(Box.createVerticalStrut(50));
+            add(Box.createVerticalStrut(20));
             add(panelBtns);
             add(Box.createVerticalStrut(20));
     }
