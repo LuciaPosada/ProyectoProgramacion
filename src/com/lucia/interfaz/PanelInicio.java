@@ -5,7 +5,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.Box; 
-import java.awt.Color;
 import java.awt.Font;
 
 public class PanelInicio extends JPanel {
@@ -16,7 +15,6 @@ public class PanelInicio extends JPanel {
 
     public PanelInicio() {
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-        setBackground(Color.BLUE); // Prueba
 
         btnNuevaPrt = new JButton("Nueva Partida");
         btnCargarPrt = new JButton("Cargar Partida");
