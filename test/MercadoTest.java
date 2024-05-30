@@ -21,7 +21,7 @@ public class MercadoTest {
         int precioMin = 80;
 
         for (int i = 0; i < 1000; i++) { // Repeticion
-            int resultado = Mercado.renovarCantidades(precioMax, precioMin);
+            int resultado = Mercado.cambiarPrecios(precioMax, precioMin);
             Assertions.assertTrue("El resultado debe estar dentro del rango", resultado >= precioMin && resultado <= precioMax);
         }
     }
