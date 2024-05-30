@@ -1,13 +1,11 @@
 package com.lucia.interfaz;
 
 import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import com.lucia.app.Serializador;
 import com.lucia.perfil.Perfil;
 
@@ -17,7 +15,7 @@ public class VentanaPrincipal extends JFrame {
 
     private PanelInicio panelInicio;
     private PanelJuego panelPartida;
-    private JPanel panelPrueba2; // Placeholder - Panel Puntuaciones
+    private PanelPuntuaciones panelPuntuaciones; 
     private CardLayout cardLayout;
 
     public VentanaPrincipal() {
@@ -35,8 +33,7 @@ public class VentanaPrincipal extends JFrame {
         // Paneles
         panelInicio = new PanelInicio();
         panelPartida = new PanelJuego();
-        panelPrueba2 = new JPanel();
-        panelPrueba2.setBackground(Color.MAGENTA);
+        panelPuntuaciones = new PanelPuntuaciones();
 
         // Funcionalidad botones del panelInicio
         panelInicio.getBtnNuevaPrt().addActionListener(new ActionListener() {
@@ -55,7 +52,7 @@ public class VentanaPrincipal extends JFrame {
 
         add(panelInicio, "panelInicio");
         add(panelPartida, "panelPartida");
-        add(panelPrueba2, "panelP2");
+        add(panelPuntuaciones, "panelP2");
 
         cardLayout.show(getContentPane(), "panelInicio");
     }
