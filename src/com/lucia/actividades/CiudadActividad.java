@@ -44,11 +44,20 @@ public class CiudadActividad {
      * Genera la cantidad gana al jugar la loteria
      * @return el dinero ganado
      */
-    public static int calcularPremioLoteria() { //ToDo: Buscar manera de reducir las posibilidades de generar cantidades altas
+    public static int calcularPremioLoteria() {
         costoLoteria = aumentarCosto("Loteria");
         Random random = new Random();
-        int premio = random.nextInt(MAX_GANANCIAS_LOTERIA - MIN_GANANCIAS_LOTERIA + 1) + MIN_GANANCIAS_LOTERIA;
-        return premio;
+
+        double probabilidad = random.nextDouble(); // 0.0 - 1.0
+        int premio;
+
+        if (probabilidad < 0.7) {
+            return random.nextInt((MAX_GANANCIAS_LOTERIA / 3) - MIN_GANANCIAS_LOTERIA + 1) + MIN_GANANCIAS_LOTERIA;
+        } else if (probabilidad < 0.9) {
+            return random.nextInt((2 * MAX_GANANCIAS_LOTERIA / 3) - (MAX_GANANCIAS_LOTERIA / 3) + 1) + (MAX_GANANCIAS_LOTERIA / 3);
+        } else {
+            return random.nextInt(MAX_GANANCIAS_LOTERIA - (2 * MAX_GANANCIAS_LOTERIA / 3) + 1) + (2 * MAX_GANANCIAS_LOTERIA / 3);
+        }
     }
 
     /**
