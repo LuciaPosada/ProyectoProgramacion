@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Puntuaciones {
 
@@ -14,7 +15,12 @@ public class Puntuaciones {
     private static final String USER = "postgres";
 
     private static final String PASSWORD = "postgres";
-    
+
+    /**
+     * Crea una nueva puntuación en la base de datos
+     * @param nombre identificador de la partida
+     * @param puntuacion final de la partida
+     */
     public static void crearPuntuacion(String nombre,int puntuacion) {
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
@@ -35,6 +41,11 @@ public class Puntuaciones {
         }
     }
 
+    /**
+     * Obtiene una puntuación por el nombre de la partida
+     * @param nombreBuscar identificador de la partida que se quiere buscar
+     * @return La puntuación encontrada, o null si no se encuentra
+     */
     public static Puntuacion obtenerPuntuacionPorNombre(String nombreBuscar) {
         Puntuacion puntuacionEncontrada = null;
 
