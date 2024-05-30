@@ -15,5 +15,15 @@ public class MercadoTest {
         }
     }
 
+    @Test
+    public void comprobacionCambiarPrecios() {
+        int precioMax = 600;
+        int precioMin = 80;
+
+        for (int i = 0; i < 1000; i++) { // Repeticion
+            int resultado = Mercado.renovarCantidades(precioMax, precioMin);
+            Assertions.assertTrue("El resultado debe estar dentro del rango", resultado >= precioMin && resultado <= precioMax);
+        }
+    }
 
 }
