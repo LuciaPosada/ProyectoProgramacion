@@ -19,7 +19,13 @@ public class CiudadActividadesTest {
 
     @Test
     public void comprobacionCalcularPremioLoteria() {
-        // ToDo: Averiguar como hacer este test
+	int maxGanancias = CiudadAcividad.MAX_GANANCIAS_LOTERIA;
+        int minGanancias = CiudadAcividad.MIN_GANANCIAS_LOTERIA;
+
+        for (int i = 0; i < 1000; i++) {
+            int premio = CiudadAcividad.calcularPremioLoteria();
+            assertTrue("El premio debe estar dentro del rango", premio >= minGanancias && premio <= maxGanancias);
+        }
     }
 
     @Test
