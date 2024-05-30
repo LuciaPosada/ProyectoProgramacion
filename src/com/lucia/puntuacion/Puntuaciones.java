@@ -68,4 +68,29 @@ public class Puntuaciones {
         return puntuacionEncontrada;
     }
 
+    /**
+     * Obtiene todas las puntuaciones de la base de datos, ordenadas alfabéticamente por nombre.
+     * @return ArrayList de las puntuaciones
+     */
+    public static ArrayList<Puntuacion> obtenerTodasLasPuntuaciones() {
+        ArrayList<Puntuacion> listaPuntuaciones = new ArrayList<>();
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            String query = "SELECT nompart, puntuacion FROM public.\"puntuaciones\" ORDER BY nompart";
+            try (PreparedStatement statement = conn.prepareStatement(query);
+                 ResultSet resultSet = statement.executeQuery()) {
+
+                while (resultSet.next()) {
+                    String nombre = resultSet.getString("nompart");
+                    int puntuacion = resultSet.getInt("puntuacion");
+                    Puntuacion puntuacionObj = new Puntuacion(puntuacion,nombre);
+                    listaPuntuaciones.add(puntuacionObj);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener todas las puntuaciones: " + e.getMessage());
+        }
+
+        return listaPuntuaciones;
+    }
 }
