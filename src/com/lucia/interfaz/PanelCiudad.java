@@ -1,6 +1,7 @@
 package com.lucia.interfaz;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.lucia.actividades.CiudadActividad;
@@ -29,12 +30,19 @@ public class PanelCiudad extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 int costoSalud = CiudadActividad.getCostoSalud();
-                if(CompraVenta.comprobarDineroDisponible(costoSalud,perfil.getFondos())){
-                    perfil.setSalud(CiudadActividad.irHospital(perfil.getSalud()));
-                    perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoSalud));
-                    panelPerfil.actualizarInformacion(); 
+
+                    if (CompraVenta.comprobarDineroDisponible(costoSalud, perfil.getFondos())) {
+                        perfil.setSalud(CiudadActividad.irHospital(perfil.getSalud()));
+                        perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoSalud));
+                        panelPerfil.actualizarInformacion();
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "Fondos insuficientes para ir al hospital.",
+                                "Fondos insuficientes",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
                 }
-            }
+  
         });
 
         loteria.addActionListener(new ActionListener() {
