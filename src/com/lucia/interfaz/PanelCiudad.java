@@ -76,10 +76,21 @@ public class PanelCiudad extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 int costoEspacio = CiudadActividad.getCostoEspacio();
-                if(CompraVenta.comprobarDineroDisponible(costoEspacio,perfil.getFondos())){
-                    perfil.getAlmacen().setEspacioAlmacen(CiudadActividad.aumentarEspacio(perfil.getAlmacen().getEspacioAlmacen()));
-                    perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoEspacio));
-                    panelPerfil.actualizarInformacion(); 
+                int confirmacion = JOptionPane.showConfirmDialog(null,
+                        "El costo de compra espacio de almacen es " + costoEspacio + ". ¿Desea continuar?",
+                        "Confirmar Operación",
+                        JOptionPane.YES_NO_OPTION);
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    if(CompraVenta.comprobarDineroDisponible(costoEspacio,perfil.getFondos())){
+                    	perfil.getAlmacen().setEspacioAlmacen(CiudadActividad.aumentarEspacio(perfil.getAlmacen().getEspacioAlmacen()));
+                    	perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoEspacio));
+                    	panelPerfil.actualizarInformacion(); 	
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "Fondos insuficientes para realizar la compra.",
+                                "Fondos insuficientes",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
