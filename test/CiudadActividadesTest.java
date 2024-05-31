@@ -3,6 +3,8 @@ import com.lucia.actividades.CiudadActividad;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class CiudadActividadesTest {
 
     // No he podido comprobar que los test funcionen
@@ -19,12 +21,13 @@ public class CiudadActividadesTest {
 
     @Test
     public void comprobacionCalcularPremioLoteria() {
-	int maxGanancias = CiudadAcividad.MAX_GANANCIAS_LOTERIA;
-        int minGanancias = CiudadAcividad.MIN_GANANCIAS_LOTERIA;
+
+	    int maxGanancias = 1000000;
+        int minGanancias = 50;
 
         for (int i = 0; i < 1000; i++) {
-            int premio = CiudadAcividad.calcularPremioLoteria();
-            assertTrue("El premio debe estar dentro del rango", premio >= minGanancias && premio <= maxGanancias);
+            int premio = CiudadActividad.calcularPremioLoteria();
+            assertTrue(premio >= minGanancias && premio <= maxGanancias);
         }
     }
 

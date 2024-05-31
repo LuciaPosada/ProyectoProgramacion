@@ -1,4 +1,4 @@
-import com.lucia.producto.Producto;
+import com.lucia.actividades.Mercado;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ public class MercadoTest {
 
         for (int i = 0; i < 1000; i++) { // Repeticion
             int resultado = Mercado.renovarCantidades(cantidadMax, cantidadMin);
-            Assertions.assertTrue("El resultado debe estar dentro del rango", resultado >= cantidadMin && resultado <= cantidadMax);
+            Assertions.assertTrue(resultado >= cantidadMin && resultado <= cantidadMax);
         }
     }
 
@@ -22,7 +22,7 @@ public class MercadoTest {
 
         for (int i = 0; i < 1000; i++) { // Repeticion
             int resultado = Mercado.cambiarPrecios(precioMax, precioMin);
-            Assertions.assertTrue("El resultado debe estar dentro del rango", resultado >= precioMin && resultado <= precioMax);
+            Assertions.assertTrue(resultado >= precioMin && resultado <= precioMax);
         }
     }
 
