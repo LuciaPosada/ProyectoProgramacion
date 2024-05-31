@@ -89,7 +89,6 @@ public class DialogCompraVenta extends JDialog {
         panel.add(btnPanel);
 
         setContentPane(panel);
-        setVisible(true);
     }
 
     private void actualizarCantidadSeleccionadaTxt(int cantidad) {
@@ -98,5 +97,10 @@ public class DialogCompraVenta extends JDialog {
 
     private void actualizarCantidadDinero(int cantidad, int precio) {
         cantidadDinero.setText(CompraVenta.calcularPrecioTotal(cantidad, precio) + " €");
+    }
+
+    public static void mostrarDialogo(JFrame parent, Producto producto) {
+        DialogCompraVenta dialog = new DialogCompraVenta(parent, producto);
+        dialog.setVisible(true);
     }
 }
