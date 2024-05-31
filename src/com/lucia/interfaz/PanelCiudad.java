@@ -30,11 +30,11 @@ public class PanelCiudad extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 int costoSalud = CiudadActividad.getCostoSalud();
-                int confirm = JOptionPane.showConfirmDialog(null,
+                int confirmacion = JOptionPane.showConfirmDialog(null,
                         "El costo de ir al hospital es " + costoSalud + ". ¿Desea continuar?",
                         "Confirmar Operación",
                         JOptionPane.YES_NO_OPTION);
-                if (confirm == JOptionPane.YES_OPTION) {
+                if (confirmacion == JOptionPane.YES_OPTION) {
                     if (CompraVenta.comprobarDineroDisponible(costoSalud, perfil.getFondos())) {
                         perfil.setSalud(CiudadActividad.irHospital(perfil.getSalud()));
                         perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoSalud));
@@ -52,11 +52,22 @@ public class PanelCiudad extends JPanel{
         loteria.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int costoLoteria = CiudadActividad.getCostoSalud();
-                if(CompraVenta.comprobarDineroDisponible(costoLoteria,perfil.getFondos())){
-                    perfil.setFondos(perfil.getFondos() + CiudadActividad.calcularPremioLoteria());
-                    perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoLoteria));
-                    panelPerfil.actualizarInformacion(); 
+                int costoLoteria = CiudadActividad.getCostoLoteria();
+                int confirmacion = JOptionPane.showConfirmDialog(null,
+                        "El costo de compra un boleto de loteria es " + costoLoteria + ". ¿Desea continuar?",
+                        "Confirmar Operación",
+                        JOptionPane.YES_NO_OPTION);
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    if (CompraVenta.comprobarDineroDisponible(costoLoteria, perfil.getFondos())) {
+                        perfil.setFondos(perfil.getFondos() + CiudadActividad.calcularPremioLoteria());
+                    	perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoLoteria));
+                    	panelPerfil.actualizarInformacion(); 
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "Fondos insuficientes para realizar la compra.",
+                                "Fondos insuficientes",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
@@ -64,7 +75,7 @@ public class PanelCiudad extends JPanel{
         almacenes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int costoEspacio = CiudadActividad.getCostoSalud();
+                int costoEspacio = CiudadActividad.getCostoEspacio();
                 if(CompraVenta.comprobarDineroDisponible(costoEspacio,perfil.getFondos())){
                     perfil.getAlmacen().setEspacioAlmacen(CiudadActividad.aumentarEspacio(perfil.getAlmacen().getEspacioAlmacen()));
                     perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoEspacio));
