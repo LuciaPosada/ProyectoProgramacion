@@ -20,6 +20,20 @@ public class CiudadActividad {
 
     public final static int MAX_GANANCIAS_LOTERIA = 1000000;
 
+    //GETTERS 
+
+    public static int getCostoSalud() {
+        return costoSalud;
+    }
+
+    public static int getCostoEspacio() {
+        return costoEspacio;
+    }
+
+    public static int getCostoLoteria() {
+        return costoLoteria;
+    }
+
     /**
      * Aumenta la salud del jugador en 20
      * @param saludActual del perfil
