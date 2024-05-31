@@ -53,11 +53,11 @@ public class PanelPerfil extends JPanel {
                 JPanel panelStats = new JPanel();
                 panelStats.setLayout(new BoxLayout(panelStats, BoxLayout.Y_AXIS));
 
-                saludEtiqueta = new JLabel("[img] "+perfil.getSalud());
+                saludEtiqueta = new JLabel("S: "+perfil.getSalud());
                     saludEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
-                espacioEtiqueta = new JLabel("[img] "+perfil.getFondos());
+                espacioEtiqueta = new JLabel("F: "+perfil.getFondos());
                     espacioEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
-                placeholderEtiqueta = new JLabel("[img] "+perfil.getAlmacen().getEspacioAlmacen());
+                placeholderEtiqueta = new JLabel("E: "+perfil.getAlmacen().getEspacioAlmacen());
                     placeholderEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT);
 
                 panelStats.add(saludEtiqueta);
