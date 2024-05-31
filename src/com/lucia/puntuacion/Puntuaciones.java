@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Puntuaciones {
 
-    private static final String URL = "jdbc:postgresql://localhost:5432/proyecto";
+    private static final String URL = "jdbc:postgresql://localhost:5432/Proyecto";
 
     private static final String USER = "postgres";
 
@@ -57,7 +57,7 @@ public class Puntuaciones {
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
                         String nombre = resultSet.getString("nompart");
-                        int puntuacionBase = resultSet.getInt("puntuacion");
+                        int puntuacionBase = resultSet.getInt("puntuaciones");
                         puntuacionEncontrada = new Puntuacion(puntuacionBase,nombre);
                     }
                 }
@@ -76,13 +76,13 @@ public class Puntuaciones {
         ArrayList<Puntuacion> listaPuntuaciones = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String query = "SELECT nompart, puntuacion FROM public.\"puntuaciones\" ORDER BY nompart";
+            String query = "SELECT nompart, puntuaciones FROM public.\"puntuaciones\" ORDER BY nompart";
             try (PreparedStatement statement = conn.prepareStatement(query);
                  ResultSet resultSet = statement.executeQuery()) {
 
                 while (resultSet.next()) {
                     String nombre = resultSet.getString("nompart");
-                    int puntuacion = resultSet.getInt("puntuacion");
+                    int puntuacion = resultSet.getInt("puntuaciones");
                     Puntuacion puntuacionObj = new Puntuacion(puntuacion,nombre);
                     listaPuntuaciones.add(puntuacionObj);
                 }
