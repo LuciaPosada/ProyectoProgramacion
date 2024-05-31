@@ -30,8 +30,7 @@ public class PanelCiudad extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 int costoSalud = CiudadActividad.getCostoSalud();
                 if(CompraVenta.comprobarDineroDisponible(costoSalud,perfil.getFondos())){
-                    int nuevaSalud = CiudadActividad.irHospital(perfil.getSalud());
-                    perfil.setSalud(nuevaSalud);
+                    perfil.setSalud(CiudadActividad.irHospital(perfil.getSalud()));
                     perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoSalud));
                     panelPerfil.actualizarInformacion(); 
                 }
@@ -43,9 +42,20 @@ public class PanelCiudad extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 int costoLoteria = CiudadActividad.getCostoSalud();
                 if(CompraVenta.comprobarDineroDisponible(costoLoteria,perfil.getFondos())){
-                    int premio = CiudadActividad.calcularPremioLoteria();
-                    perfil.setFondos(perfil.getFondos() + premio);
+                    perfil.setFondos(perfil.getFondos() + CiudadActividad.calcularPremioLoteria());
                     perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoLoteria));
+                    panelPerfil.actualizarInformacion(); 
+                }
+            }
+        });
+
+        almacenes.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int costoEspacio = CiudadActividad.getCostoSalud();
+                if(CompraVenta.comprobarDineroDisponible(costoEspacio,perfil.getFondos())){
+                    perfil.getAlmacen().setEspacioAlmacen(CiudadActividad.aumentarEspacio(perfil.getAlmacen().getEspacioAlmacen()));
+                    perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoEspacio));
                     panelPerfil.actualizarInformacion(); 
                 }
             }
