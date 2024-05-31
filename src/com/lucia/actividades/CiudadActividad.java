@@ -63,7 +63,6 @@ public class CiudadActividad {
         Random random = new Random();
 
         double probabilidad = random.nextDouble(); // 0.0 - 1.0
-        int premio;
 
         if (probabilidad < 0.7) {
             return random.nextInt((MAX_GANANCIAS_LOTERIA / 3) - MIN_GANANCIAS_LOTERIA + 1) + MIN_GANANCIAS_LOTERIA;
