@@ -33,7 +33,7 @@ public class Producto {
     /**
      * Porcentaje de descuento estático para calcular el precio mínimo y máximo.
      */
-    public final static double INTERVALO_DESCUENTO = 0.5;
+    public final static float INTERVALO_DESCUENTO = 0.5f;
 
     public Producto(String nombreProducto,int precio,int cantidad) {
         this.nombreProducto = nombreProducto;
