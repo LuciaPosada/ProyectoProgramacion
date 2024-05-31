@@ -28,10 +28,24 @@ public class PanelCiudad extends JPanel{
         hospital.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(CompraVenta.comprobarDineroDisponible(CiudadActividad.getCostoSalud(),perfil.getFondos())){
+                int costoSalud = CiudadActividad.getCostoSalud();
+                if(CompraVenta.comprobarDineroDisponible(costoSalud,perfil.getFondos())){
                     int nuevaSalud = CiudadActividad.irHospital(perfil.getSalud());
                     perfil.setSalud(nuevaSalud);
-                    perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), CiudadActividad.getCostoSalud()));
+                    perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoSalud));
+                    panelPerfil.actualizarInformacion(); 
+                }
+            }
+        });
+
+        loteria.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int costoLoteria = CiudadActividad.getCostoSalud();
+                if(CompraVenta.comprobarDineroDisponible(costoLoteria,perfil.getFondos())){
+                    int premio = CiudadActividad.calcularPremioLoteria();
+                    perfil.setFondos(perfil.getFondos() + premio);
+                    perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoLoteria));
                     panelPerfil.actualizarInformacion(); 
                 }
             }
