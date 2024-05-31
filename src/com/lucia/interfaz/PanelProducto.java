@@ -90,7 +90,7 @@ public class PanelProducto extends JPanel{
      * @param nuevoPrecio el nuevo precio por el que se va cambiar el anterior
      * @param cambioPrecio dicta si se a producido un aumento/disminucion o nada
      */
-    void setPrecioLabel(String nuevoPrecio,String cambioPrecio) { // ToDo: Añadir manera de dircernir si el precio a aumentado o disminuido
+    void setPrecioLabel(String nuevoPrecio,String cambioPrecio) {
         final String AUMENTO = "aumento";
         final String DISMINUCION = "disminucion";
         final String IGUAL = "igual";
