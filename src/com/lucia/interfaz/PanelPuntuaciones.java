@@ -1,5 +1,6 @@
 package com.lucia.interfaz;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -13,7 +14,7 @@ public class PanelPuntuaciones extends JScrollPane {
 
     public PanelPuntuaciones() {
         panelContenedor = new JPanel();
-        panelContenedor.setLayout(new BoxLayout(panelContenedor, BoxLayout.Y_AXIS));
+        panelContenedor.setLayout(new BoxLayout(panelContenedor, BoxLayout.X_AXIS));
 
         ArrayList<Puntuacion> puntuaciones = Puntuaciones.obtenerTodasLasPuntuaciones();
 
