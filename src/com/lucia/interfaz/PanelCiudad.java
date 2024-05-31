@@ -30,7 +30,11 @@ public class PanelCiudad extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 int costoSalud = CiudadActividad.getCostoSalud();
-
+                int confirm = JOptionPane.showConfirmDialog(null,
+                        "El costo de ir al hospital es " + costoSalud + ". ¿Desea continuar?",
+                        "Confirmar Operación",
+                        JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION) {
                     if (CompraVenta.comprobarDineroDisponible(costoSalud, perfil.getFondos())) {
                         perfil.setSalud(CiudadActividad.irHospital(perfil.getSalud()));
                         perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoSalud));
@@ -42,7 +46,7 @@ public class PanelCiudad extends JPanel{
                                 JOptionPane.ERROR_MESSAGE);
                     }
                 }
-  
+            }
         });
 
         loteria.addActionListener(new ActionListener() {
