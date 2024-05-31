@@ -40,7 +40,7 @@ public class PanelJuego extends JPanel {
         if (panelTabs != null) {
             remove(panelTabs);
         }
-        panelTabs = new PanelTabs();
+        panelTabs = new PanelTabs(perfil,panelPerfil);
         add(panelTabs, BorderLayout.CENTER);
         revalidate();
         repaint();

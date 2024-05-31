@@ -5,9 +5,11 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import com.lucia.perfil.Perfil;
+
 public class PanelTabs extends JPanel {
 
-    public PanelTabs() {
+    public PanelTabs(Perfil perfil,PanelPerfil panelPerfil) {
         setLayout(new BorderLayout());
 
         // TabbedPane
@@ -17,7 +19,7 @@ public class PanelTabs extends JPanel {
             // Pestañas
 
                 PanelMercado panelMercado = new PanelMercado();
-                PanelCiudad panelCiudad = new PanelCiudad();
+                PanelCiudad panelCiudad = new PanelCiudad(perfil,panelPerfil);
                 JPanel placeholder = new JPanel();
 
             tabbedPane.addTab("Mercado", panelMercado);
