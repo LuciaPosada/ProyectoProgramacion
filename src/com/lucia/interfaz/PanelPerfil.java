@@ -18,8 +18,8 @@ public class PanelPerfil extends JPanel {
     private JLabel nombreEtiqueta;
     private JLabel añosEtiqueta;
     private JLabel saludEtiqueta;
+    private JLabel fondosEtiqueta;
     private JLabel espacioEtiqueta;
-    private JLabel placeholderEtiqueta;
 
     public PanelPerfil(Perfil perfil) {
         this.perfil = perfil;
@@ -55,14 +55,14 @@ public class PanelPerfil extends JPanel {
 
                 saludEtiqueta = new JLabel("S: "+perfil.getSalud());
                     saludEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
-                espacioEtiqueta = new JLabel("F: "+perfil.getFondos());
-                    espacioEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
-                placeholderEtiqueta = new JLabel("E: "+perfil.getAlmacen().getEspacioAlmacen());
-                    placeholderEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT);
+                fondosEtiqueta = new JLabel("F: "+perfil.getFondos());
+                    fondosEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
+                espacioEtiqueta = new JLabel("E: "+perfil.getAlmacen().getEspacioAlmacen());
+                    espacioEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT);
 
                 panelStats.add(saludEtiqueta);
+                panelStats.add(fondosEtiqueta);
                 panelStats.add(espacioEtiqueta);
-                panelStats.add(placeholderEtiqueta);
             
             panelContenedor.add(panelInfo);
             panelContenedor.add(Box.createVerticalStrut(10));
@@ -106,8 +106,9 @@ public class PanelPerfil extends JPanel {
      */
     public void actualizarInformacion() {
         añosEtiqueta.setText("Años: " + perfil.getAños());
-        saludEtiqueta.setText("[img] " + perfil.getSalud());
-        // Faltan etiquetas
+        saludEtiqueta.setText("S: " + perfil.getSalud());
+        fondosEtiqueta.setText("F: "+ perfil.getFondos());
+        espacioEtiqueta.setText("E: "+ perfil.getAlmacen().getEspacioAlmacen());
     }
 
 }
