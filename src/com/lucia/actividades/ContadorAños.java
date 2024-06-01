@@ -47,4 +47,15 @@ public class ContadorAños {
     public static boolean comprobarLimiteSalud(int salud) {
         return salud <= 0;
     }
+
+   /**
+    * Calcula la puntuación final basandose en los años, ganancias y perdidas
+    * @param años el número de años
+    * @param ganancias las ganancias obtenidas
+    * @param perdidas las pérdidas incurridas
+    * @return la puntuación final calculada como años multiplicados por la diferencia entre ganancias y pérdidas
+    */
+    public static int calcularPuntuacionFinal(int años,int ganancias, int perdidas) {
+        return años*(ganancias-perdidas);
+    }
 }
