@@ -18,16 +18,14 @@ public class Puntuaciones {
 
     /**
      * Crea una nueva puntuación en la base de datos
-     * @param nombre identificador de la partida
-     * @param puntuacion final de la partida
+     * @param puntuacionObj objeto de tipo Puntuacion que contiene el nombre y la puntuacion de la partida
      */
-    public static void crearPuntuacion(String nombre,int puntuacion) {
-
+    public static void crearPuntuacion(Puntuacion puntuacionObj) {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String query = "INSERT INTO public.\"puntuaciones\" (nompart,puntuacion) VALUES (?, ?)";
+            String query = "INSERT INTO public.\"puntuaciones\" (nompart, puntuaciones) VALUES (?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
-            statement.setString(1, nombre);
-            statement.setInt(2, puntuacion);
+            statement.setString(1, puntuacionObj.nombre);
+            statement.setInt(2, puntuacionObj.puntuacion);
 
             int rowsInserted = statement.executeUpdate();
 
