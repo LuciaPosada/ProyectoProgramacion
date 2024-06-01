@@ -42,11 +42,13 @@ public class VentanaPrincipal extends JFrame {
         setLayout(cardLayout);
 
         // Paneles
+
         panelInicio = new PanelInicio();
         panelPartida = new PanelJuego();
         panelPuntuaciones = new PanelPuntuaciones();
 
         // Funcionalidad botones del panelInicio
+
         panelInicio.getBtnNuevaPrt().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -121,10 +123,5 @@ public class VentanaPrincipal extends JFrame {
 
     public void mostrarPanelInicio() {
         cardLayout.show(getContentPane(), "panelInicio");
-    }
-
-    public static void main(String[] args) {
-        VentanaPrincipal ventana = new VentanaPrincipal();
-        ventana.setVisible(true);
     }
 }
