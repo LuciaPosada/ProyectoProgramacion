@@ -85,7 +85,7 @@ public class PanelCiudad extends JPanel{
                         JOptionPane.YES_NO_OPTION);
                 if (confirmacion == JOptionPane.YES_OPTION) {
                     if(CompraVenta.comprobarDineroDisponible(costoEspacio,perfil.getFondos())){
-                    	perfil.getAlmacen().setEspacioAlmacen(CiudadActividad.aumentarEspacio(perfil.getAlmacen().getEspacioAlmacen()));
+                    	perfil.getAlmacen().setEspacioTotal(CiudadActividad.aumentarEspacio(perfil.getAlmacen().getEspacioTotal()));
                     	perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoEspacio));
                     	panelPerfil.actualizarInformacion(); 	
                     } else {
