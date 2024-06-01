@@ -17,7 +17,7 @@ public class Almacen implements Serializable{
      */
     private int espacioEnUso;
     /**
-     * Mapa para almacenar los productos por nombre
+     * Mapa para almacenar los productos a vender
      */
     private static HashMap<String, Producto> productosAlmacenados = new HashMap<>();
     
