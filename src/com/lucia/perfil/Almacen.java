@@ -3,44 +3,45 @@ package com.lucia.perfil;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 
 import com.lucia.producto.Producto;
 
 public class Almacen implements Serializable{
+
     /**
-     * Espacio disponible para almacenar Productos
+     * Espacio total para almacenar Productos
      */
-    private int espacioAlmacen;
+    private int espacioTotal;
     /**
      * Mapa para almacenar los productos por nombre
      */
-    private HashMap<String,Producto> procuctosAlmacenados;
+    private static HashMap<String, Producto> productosAlmacenados = new HashMap<>();
     
     // CONSTRUCTOR
 
     public Almacen() {
-        this.espacioAlmacen = 50;
-        this.procuctosAlmacenados = new HashMap<>();
+        this.espacioTotal = 50;
     }
     
     // GETTERS
 
-    public int getEspacioAlmacen() {
-        return espacioAlmacen;
+    public int getEspacioTotal() {
+        return espacioTotal;
     }
 
-    public HashMap<String, Producto> getProcuctosAlmacenados() {
-        return procuctosAlmacenados;
+    public static Map<String, Producto> getProductosAlmacenados() {
+        return productosAlmacenados;
     }
     
     // SETTERS
 
-    public void setEspacioAlmacen(int espacioAlmacen) {
-        this.espacioAlmacen = espacioAlmacen;
+    public void setEspacioTotal(int espacioTotal) {
+        this.espacioTotal = espacioTotal;
     }
 
-    public void setProcuctosAlmacenados(HashMap<String, Producto> procuctosAlmacenados) {
-        this.procuctosAlmacenados = procuctosAlmacenados;
+    public static void setProductosAlmacenados(HashMap<String, Producto> productosAlmacenados) {
+        Almacen.productosAlmacenados = productosAlmacenados;
     }
 
 }
