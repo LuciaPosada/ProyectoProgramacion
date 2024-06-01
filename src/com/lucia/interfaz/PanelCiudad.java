@@ -62,8 +62,8 @@ public class PanelCiudad extends JPanel{
                         int premio = CiudadActividad.calcularPremioLoteria();
                         perfil.setFondos(perfil.getFondos() + premio);
                     	perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoLoteria));
-                        perfil.setGanancias(premio);
-                        perfil.setPerdidas(costoLoteria);
+                        perfil.setGanancias(perfil.getGanancias()+premio);
+                        perfil.setPerdidas(perfil.getPerdidas()+costoLoteria);
                     	panelPerfil.actualizarInformacion(); 
                     } else {
                         JOptionPane.showMessageDialog(null,
