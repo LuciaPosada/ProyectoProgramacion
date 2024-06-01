@@ -1,6 +1,11 @@
 
 package com.lucia.actividades;
 
+import com.lucia.interfaz.VentanaPrincipal;
+import com.lucia.perfil.Perfil;
+import com.lucia.puntuacion.Puntuacion;
+import com.lucia.puntuacion.Puntuaciones;
+
 public class ContadorAños {
     
     /**
@@ -57,5 +62,15 @@ public class ContadorAños {
     */
     public static int calcularPuntuacionFinal(int años,int ganancias, int perdidas) {
         return años*(ganancias-perdidas);
+    }
+
+    /**
+     * Crea la puntuacion final y elimina la partida
+     * @param perfil el perfil de la partida a finalizar
+     */
+    public static void finalizarPartida(Perfil perfil){
+        Puntuacion puntuacion = new Puntuacion( calcularPuntuacionFinal(perfil.getAños(),perfil.getGanancias(),perfil.getPerdidas()), perfil.getNombrePerfil());
+        Puntuaciones.crearPuntuacion(puntuacion);
+        VentanaPrincipal.eliminarPerfil(perfil.getNombrePerfil()); 
     }
 }
