@@ -13,6 +13,8 @@ public class VentanaPrincipal extends JFrame {
 
     private static HashMap<String, Perfil> partidasGuardadas = new HashMap<>();
 
+    private static final String ARCHIVO_DE_GUARDADO = "partidasGuardadas.txt";
+
     private PanelInicio panelInicio;
     private PanelJuego panelPartida;
     private PanelPuntuaciones panelPuntuaciones; 
@@ -28,14 +30,14 @@ public class VentanaPrincipal extends JFrame {
         // Intentar cargar los datos y en caso de excepcion, crear un nuevo archivo
         
         try {
-            partidasGuardadas = Serializador.cargarDatos("partidasGuardadas.txt");
+            partidasGuardadas = Serializador.cargarDatos(ARCHIVO_DE_GUARDADO);
             if (partidasGuardadas == null) {
                 partidasGuardadas = new HashMap<>();
-                Serializador.guardarDatos("partidasGuardadas.txt", partidasGuardadas);
+                Serializador.guardarDatos(ARCHIVO_DE_GUARDADO, partidasGuardadas);
             }
         } catch (Exception e) { 
             partidasGuardadas = new HashMap<>();
-            Serializador.guardarDatos("partidasGuardadas.txt", partidasGuardadas);
+            Serializador.guardarDatos(ARCHIVO_DE_GUARDADO, partidasGuardadas);
         }
 
         cardLayout = new CardLayout();
@@ -118,7 +120,7 @@ public class VentanaPrincipal extends JFrame {
      */
     public static void guardarPerfil(Perfil perfil) {
         partidasGuardadas.put(perfil.getNombrePerfil(), perfil);
-        Serializador.guardarDatos("partidasGuardadas.txt", partidasGuardadas);
+        Serializador.guardarDatos(ARCHIVO_DE_GUARDADO, partidasGuardadas);
     }
 
     /**
@@ -127,7 +129,7 @@ public class VentanaPrincipal extends JFrame {
      */
     public static void eliminarPerfil(String nombrePartida) {
         if (partidasGuardadas.remove(nombrePartida) != null) {
-            Serializador.guardarDatos("partidasGuardadas.txt", partidasGuardadas);
+            Serializador.guardarDatos(ARCHIVO_DE_GUARDADO, partidasGuardadas);
             System.out.println("Perfil eliminado con éxito");
         } else {
             System.out.println("Perfil no encontrado");
