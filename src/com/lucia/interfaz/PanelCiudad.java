@@ -59,8 +59,11 @@ public class PanelCiudad extends JPanel{
                         JOptionPane.YES_NO_OPTION);
                 if (confirmacion == JOptionPane.YES_OPTION) {
                     if (CompraVenta.comprobarDineroDisponible(costoLoteria, perfil.getFondos())) {
-                        perfil.setFondos(perfil.getFondos() + CiudadActividad.calcularPremioLoteria());
+                        int premio = CiudadActividad.calcularPremioLoteria();
+                        perfil.setFondos(perfil.getFondos() + premio);
                     	perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoLoteria));
+                        perfil.setGanancias(premio);
+                        perfil.setPerdidas(costoLoteria);
                     	panelPerfil.actualizarInformacion(); 
                     } else {
                         JOptionPane.showMessageDialog(null,
@@ -94,11 +97,8 @@ public class PanelCiudad extends JPanel{
                 }
             }
         });
-
         add(hospital);
         add(loteria);
         add(almacenes);
-
     }
-    
 }
