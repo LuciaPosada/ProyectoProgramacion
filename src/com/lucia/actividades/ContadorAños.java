@@ -37,5 +37,14 @@ public class ContadorAños {
         }else{ // menores de 20
             return salud;
         }  
-    }   
+    } 
+    
+    /**
+     * Comprueba si la salud es igual o menor que cero
+     * @param salud variable que se va a evauluar
+     * @return true si se a la salud a llegado a cero o menos | false si la salud esta por encima de 0
+     */
+    public static boolean comprobarLimiteSalud(int salud) {
+        return salud <= 0;
+    }
 }
