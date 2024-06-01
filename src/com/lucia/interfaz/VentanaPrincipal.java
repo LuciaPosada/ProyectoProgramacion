@@ -121,6 +121,19 @@ public class VentanaPrincipal extends JFrame {
         Serializador.guardarDatos("partidasGuardadas.txt", partidasGuardadas);
     }
 
+    /**
+     * Elimina un perfil del HashMap partidasGuardadas y actualiza la serialización.
+     * @param nombrePartida el nombre del perfil a eliminar
+     */
+    public static void eliminarPerfil(String nombrePartida) {
+        if (partidasGuardadas.remove(nombrePartida) != null) {
+            Serializador.guardarDatos("partidasGuardadas.txt", partidasGuardadas);
+            System.out.println("Perfil eliminado con éxito");
+        } else {
+            System.out.println("Perfil no encontrado");
+        }
+    }
+
     public void mostrarPanelInicio() {
         cardLayout.show(getContentPane(), "panelInicio");
     }
