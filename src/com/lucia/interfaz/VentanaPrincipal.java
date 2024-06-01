@@ -20,12 +20,23 @@ public class VentanaPrincipal extends JFrame {
 
     public VentanaPrincipal() {
         setTitle("Especulacion Financiera para Dummies");
-        setSize(620, 300);
+        setSize(600, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
-
-        partidasGuardadas = Serializador.cargarDatos("partidasGuardadas.txt");
+        
+        // Intentar cargar los datos y en caso de excepcion, crear un nuevo archivo
+        
+        try {
+            partidasGuardadas = Serializador.cargarDatos("partidasGuardadas.txt");
+            if (partidasGuardadas == null) {
+                partidasGuardadas = new HashMap<>();
+                Serializador.guardarDatos("partidasGuardadas.txt", partidasGuardadas);
+            }
+        } catch (Exception e) { 
+            partidasGuardadas = new HashMap<>();
+            Serializador.guardarDatos("partidasGuardadas.txt", partidasGuardadas);
+        }
 
         cardLayout = new CardLayout();
         setLayout(cardLayout);
