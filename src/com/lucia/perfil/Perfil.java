@@ -13,6 +13,14 @@ public class Perfil implements Serializable{
      */
     private int fondos;
     /**
+     * Cantidad de dinero ganado a lo largo de la partida
+     */
+    private int ganancias;
+    /**
+     * Cantidad de dinero gastado a lo largo de la partida
+     */
+    private int perdidas;
+    /**
      * Cantidad de salud del jugador
      */
     private int salud;
@@ -32,6 +40,8 @@ public class Perfil implements Serializable{
     public Perfil(String nombrePerfil) {
         this.nombrePerfil = nombrePerfil;
         this.fondos = 1500;
+        this.ganancias = 0;
+        this.perdidas = 0;
         this.salud = 100;
         this.años = 18;
         this.almacen = new Almacen();
@@ -49,6 +59,14 @@ public class Perfil implements Serializable{
 
     public int getFondos() {
         return fondos;
+    }
+
+    public int getGanancias() {
+        return ganancias;
+    }
+
+    public int getPerdidas() {
+        return perdidas;
     }
 
     public int getSalud() {
@@ -71,6 +89,14 @@ public class Perfil implements Serializable{
 
     public void setFondos(int fondos) {
         this.fondos = fondos;
+    }
+
+    public void setGanancias(int ganancias) {
+        this.ganancias = ganancias;
+    }
+
+    public void setPerdidas(int perdidas) {
+        this.perdidas = perdidas;
     }
 
     public void setSalud(int salud) {
