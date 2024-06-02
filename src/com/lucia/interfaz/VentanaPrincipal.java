@@ -22,7 +22,7 @@ public class VentanaPrincipal extends JFrame {
 
     public VentanaPrincipal() {
         setTitle("Especulacion Financiera para Dummies");
-        setSize(600, 300);
+        setSize(650, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -66,7 +66,7 @@ public class VentanaPrincipal extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PanelPuntuaciones.actualizarPuntuacionesEnTabla();
-                cardLayout.show(getContentPane(), "panelPuntuacione");
+                cardLayout.show(getContentPane(), "panelPuntuaciones");
             }
         });
 
