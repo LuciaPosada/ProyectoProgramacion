@@ -1,6 +1,9 @@
 package com.lucia.interfaz;
 
 import com.lucia.actividades.CompraVenta;
+import com.lucia.actividades.MercadoActividad;
+import com.lucia.perfil.Mercado;
+import com.lucia.perfil.Perfil;
 import com.lucia.producto.Producto;
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +20,7 @@ public class DialogCompraVenta extends JDialog {
     private JTextField cantidadSeleccionadaTxt;
     private JLabel cantidadDinero;
 
-    public DialogCompraVenta(JFrame parent, Producto producto) {
+    public DialogCompraVenta(JFrame parent, Producto producto,String opcion,Perfil perfil) {
         super(parent, true);
         setTitle("Comprar/Vender"); // Pendiente de revision
         setSize(400, 200);
@@ -78,6 +81,24 @@ public class DialogCompraVenta extends JDialog {
         aceptarBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int cantidadSeleccionada = slider.getValue();
+                int precioTotal = CompraVenta.calcularPrecioTotal(cantidadSeleccionada, producto.getPrecio());
+                switch(opcion){
+                    case "compra":
+                        if (CompraVenta.comprobarDineroDisponible(precioTotal, perfil.getFondos())) {
+                            if (CompraVenta.comprobarEspacioDisponible(perfil.getAlmacen().getEspacioTotal(), cantidadSeleccionada,perfil.getAlmacen().getEspacioEnUso())) {
+                                MercadoActividad.realizarCompra(producto,cantidadSeleccionada,precioTotal,perfil);
+                            } else {
+                                JOptionPane.showMessageDialog(parent, "No hay suficiente espacio en el almacén para realizar la compra.");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(parent, "Fondos insuficientes para realizar la compra.");
+                        }
+                        break;
+                    case "venta":
+                        MercadoActividad.realizarVenta(producto,cantidadSeleccionada,precioTotal,perfil);
+                        break;
+                }
                 dispose();
             }
         });
@@ -99,8 +120,8 @@ public class DialogCompraVenta extends JDialog {
         cantidadDinero.setText(CompraVenta.calcularPrecioTotal(cantidad, precio) + " €");
     }
 
-    public static void mostrarDialogo(JFrame parent, Producto producto) {
-        DialogCompraVenta dialog = new DialogCompraVenta(parent, producto);
+    public static void mostrarDialogo(JFrame parent, Producto producto,String opcion,Perfil perfil) {
+        DialogCompraVenta dialog = new DialogCompraVenta(parent, producto,opcion,perfil);
         dialog.setVisible(true);
     }
 }
