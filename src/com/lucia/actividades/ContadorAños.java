@@ -25,21 +25,21 @@ public class ContadorAños {
      */
     public static int empeorarSalud(int salud,int años){
         
-        final int SALUD_A_EMPEORAR_ENTRE_20_40_AÑOS = 10;
-        final int SALUD_A_EMPEORAR_ENTRE_40_60_AÑOS = 20;
-        final int SALUD_A_EMPEORAR_MAYOR_DE_60_AÑOS = 30;
+        final int SALUD_A_EMPEORAR_ENTRE_30_50_AÑOS = 10;
+        final int SALUD_A_EMPEORAR_ENTRE_50_70_AÑOS = 20;
+        final int SALUD_A_EMPEORAR_MAYOR_DE_70_AÑOS = 30;
         
-        final int VEINTE_AÑOS = 20;
-        final int CUARENTA_AÑOS = 40;
-        final int SESENTA_AÑOS = 60;
+        final int TREINTA_AÑOS = 30;
+        final int CINCUENTA_AÑOS = 50;
+        final int SETENTA_AÑOS = 70;
         
-        if(años>VEINTE_AÑOS&&años<CUARENTA_AÑOS){
-            return salud - SALUD_A_EMPEORAR_ENTRE_20_40_AÑOS;
-        }else if (años>=CUARENTA_AÑOS&&años<=SESENTA_AÑOS){
-            return salud - SALUD_A_EMPEORAR_ENTRE_40_60_AÑOS;
-        }else if(años>SESENTA_AÑOS){
-            return salud - SALUD_A_EMPEORAR_MAYOR_DE_60_AÑOS;
-        }else{ // menores de 20
+        if(años>TREINTA_AÑOS&&años<CINCUENTA_AÑOS){
+            return salud - SALUD_A_EMPEORAR_ENTRE_30_50_AÑOS;
+        }else if (años>=CINCUENTA_AÑOS&&años<=SETENTA_AÑOS){
+            return salud - SALUD_A_EMPEORAR_ENTRE_50_70_AÑOS;
+        }else if(años>SETENTA_AÑOS){
+            return salud - SALUD_A_EMPEORAR_MAYOR_DE_70_AÑOS;
+        }else{ // menores de 30
             return salud;
         }  
     } 
