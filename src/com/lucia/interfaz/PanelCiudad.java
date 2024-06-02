@@ -37,7 +37,7 @@ public class PanelCiudad extends JPanel{
                 if (confirmacion == JOptionPane.YES_OPTION) {
                     if (CompraVenta.comprobarDineroDisponible(costoSalud, perfil.getFondos())) {
                         perfil.setSalud(CiudadActividad.irHospital(perfil.getSalud()));
-                        perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoSalud));
+                        perfil.setFondos(perfil.getFondos() - costoSalud);
                         panelPerfil.actualizarInformacion();
                     } else {
                         JOptionPane.showMessageDialog(null,
@@ -61,7 +61,7 @@ public class PanelCiudad extends JPanel{
                     if (CompraVenta.comprobarDineroDisponible(costoLoteria, perfil.getFondos())) {
                         int premio = CiudadActividad.calcularPremioLoteria();
                         perfil.setFondos(perfil.getFondos() + premio);
-                    	perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoLoteria));
+                    	perfil.setFondos(perfil.getFondos() - costoLoteria);
                         perfil.setGanancias(perfil.getGanancias()+premio);
                         perfil.setPerdidas(perfil.getPerdidas()+costoLoteria);
                     	panelPerfil.actualizarInformacion(); 
@@ -86,7 +86,7 @@ public class PanelCiudad extends JPanel{
                 if (confirmacion == JOptionPane.YES_OPTION) {
                     if(CompraVenta.comprobarDineroDisponible(costoEspacio,perfil.getFondos())){
                     	perfil.getAlmacen().setEspacioTotal(CiudadActividad.aumentarEspacio(perfil.getAlmacen().getEspacioTotal()));
-                    	perfil.setFondos(CompraVenta.gastarDinero(perfil.getFondos(), costoEspacio));
+                    	perfil.setFondos(perfil.getFondos() - costoEspacio);
                     	panelPerfil.actualizarInformacion(); 	
                     } else {
                         JOptionPane.showMessageDialog(null,
