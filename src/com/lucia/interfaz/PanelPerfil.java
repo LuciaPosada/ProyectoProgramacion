@@ -57,7 +57,7 @@ public class PanelPerfil extends JPanel {
                     saludEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
                 fondosEtiqueta = new JLabel("F: "+perfil.getFondos());
                     fondosEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
-                espacioEtiqueta = new JLabel("E: "+perfil.getAlmacen().getEspacioAlmacen());
+                    espacioEtiqueta = new JLabel("E: "+perfil.getAlmacen().getEspacioTotal()+"|"+perfil.getAlmacen().getEspacioEnUso());
                     espacioEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT);
 
                 panelStats.add(saludEtiqueta);
@@ -108,7 +108,7 @@ public class PanelPerfil extends JPanel {
         añosEtiqueta.setText("Años: " + perfil.getAños());
         saludEtiqueta.setText("S: " + perfil.getSalud());
         fondosEtiqueta.setText("F: "+ perfil.getFondos());
-        espacioEtiqueta.setText("E: "+ perfil.getAlmacen().getEspacioAlmacen());
+        espacioEtiqueta.setText("E: "+ perfil.getAlmacen().getEspacioTotal()+"|"+perfil.getAlmacen().getEspacioEnUso());
     }
 
 }
