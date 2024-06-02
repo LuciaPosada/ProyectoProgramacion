@@ -9,9 +9,12 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.lucia.actividades.Mercado;
-import com.lucia.perfil.ContadorAños;
+import com.lucia.actividades.ContadorAños;
+import com.lucia.actividades.MercadoActividad;
+import com.lucia.perfil.Almacen;
+import com.lucia.perfil.Mercado;
 import com.lucia.perfil.Perfil;
+import com.lucia.puntuacion.Puntuaciones;
 
 
 public class PanelBotonesJuego extends JPanel {
@@ -51,8 +54,14 @@ public class PanelBotonesJuego extends JPanel {
                     Perfil perfil = panelPerfil.getPerfil();
                     perfil.setAños(ContadorAños.sumarAño(perfil.getAños()));
                     perfil.setSalud(ContadorAños.empeorarSalud(perfil.getSalud(), perfil.getAños()));
-                    panelPerfil.actualizarInformacion();
-                    Mercado.actualizarProductos();
+                    if (ContadorAños.comprobarLimiteSalud(perfil.getSalud())){
+                        VentanaPrincipal ventanaPrincipal = (VentanaPrincipal) getTopLevelAncestor();
+                        ContadorAños.finalizarPartida(perfil);
+                        ventanaPrincipal.mostrarPanelInicio();
+                    }else{
+                        panelPerfil.actualizarInformacion();
+                        MercadoActividad.actualizarProductos(Mercado.getProductosEnVenta(),Almacen.getProductosAlmacenados());
+                    }
                 }
             }
         });
