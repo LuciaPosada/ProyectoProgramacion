@@ -104,6 +104,10 @@ public class PanelProducto extends JPanel{
         setPrecioLabel(String.valueOf(nuevoPrecio), cambioPrecio);
     }
 
+    public void actualizarCantidad() {
+        cantDisponibleLabel.setText(String.valueOf(producto.getCantidad()));
+    }
+
     /**
      * Muestra el dialogo de compra/venta
      */
