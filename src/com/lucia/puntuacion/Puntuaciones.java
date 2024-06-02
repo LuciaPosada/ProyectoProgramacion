@@ -43,7 +43,7 @@ public class Puntuaciones {
     }
 
     /**
-     * Obtiene todas las puntuaciones de la base de datos, ordenadas alfabéticamente por nombre.
+     * Obtiene todas las puntuaciones de la base de datos, ordenadas alfabéticamente por nombre
      * @return ArrayList de las puntuaciones
      */
     public static ArrayList<Puntuacion> obtenerTodasLasPuntuaciones() {
