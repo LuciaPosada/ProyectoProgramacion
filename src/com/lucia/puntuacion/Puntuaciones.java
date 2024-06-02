@@ -22,10 +22,13 @@ public class Puntuaciones {
      */
     public static void crearPuntuacion(Puntuacion puntuacionObj) {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String query = "INSERT INTO public.\"puntuaciones\" (nompart, puntuaciones) VALUES (?, ?)";
+            String query = "INSERT INTO public.\"puntuaciones\" (nompart, puntuaciones, ganancias, perdidas, años) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
             statement.setString(1, puntuacionObj.nombre);
             statement.setInt(2, puntuacionObj.puntuacion);
+            statement.setInt(3, puntuacionObj.ganancias);
+            statement.setInt(4, puntuacionObj.perdidas);
+            statement.setInt(5, puntuacionObj.años);
 
             int rowsInserted = statement.executeUpdate();
 
@@ -47,14 +50,17 @@ public class Puntuaciones {
         ArrayList<Puntuacion> listaPuntuaciones = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String query = "SELECT nompart, puntuaciones FROM public.\"puntuaciones\" ORDER BY nompart";
+            String query = "SELECT nompart, puntuaciones, ganancias, perdidas, años FROM public.\"puntuaciones\" ORDER BY nompart";
             try (PreparedStatement statement = conn.prepareStatement(query);
                  ResultSet resultSet = statement.executeQuery()) {
 
                 while (resultSet.next()) {
                     String nombre = resultSet.getString("nompart");
                     int puntuacion = resultSet.getInt("puntuaciones");
-                    Puntuacion puntuacionObj = new Puntuacion(puntuacion,nombre);
+                    int ganancias = resultSet.getInt("ganancias");
+                    int perdidas = resultSet.getInt("perdidas");
+                    int años = resultSet.getInt("años");
+                    Puntuacion puntuacionObj = new Puntuacion(puntuacion, nombre, ganancias, perdidas, años);
                     listaPuntuaciones.add(puntuacionObj);
                 }
             }
