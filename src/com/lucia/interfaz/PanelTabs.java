@@ -1,4 +1,3 @@
-
 package com.lucia.interfaz;
 
 import java.awt.BorderLayout;
@@ -9,24 +8,30 @@ import com.lucia.perfil.Perfil;
 
 public class PanelTabs extends JPanel {
 
-    public PanelTabs(Perfil perfil,PanelPerfil panelPerfil) {
+    private Perfil perfil;
+    private PanelPerfil panelPerfil;
+    private JTabbedPane tabbedPane;
+
+    public PanelTabs(Perfil perfil, PanelPerfil panelPerfil) {
+        this.perfil = perfil;
+        this.panelPerfil = panelPerfil;
         setLayout(new BorderLayout());
+        iniciarTabs();
+    }
 
-        // TabbedPane
+    private void iniciarTabs() {
+        tabbedPane = new JTabbedPane();
 
-            JTabbedPane tabbedPane = new JTabbedPane();
+        // Pestañas
 
-            // Pestañas
+        PanelMercado panelMercado = new PanelMercado(perfil);
+        PanelAlmacen panelAlmacen = new PanelAlmacen(perfil);
+        PanelCiudad panelCiudad = new PanelCiudad(perfil, panelPerfil);
 
-                PanelMercado panelMercado = new PanelMercado();
-                PanelAlmacen panelAlmacen = new PanelAlmacen();
-                PanelCiudad panelCiudad = new PanelCiudad(perfil,panelPerfil);
-
-            tabbedPane.addTab("Mercado", panelMercado);
-            tabbedPane.addTab("Almacen",panelAlmacen);
-            tabbedPane.addTab("Ciudad", panelCiudad);
+        tabbedPane.addTab("Mercado", panelMercado);
+        tabbedPane.addTab("Almacen", panelAlmacen);
+        tabbedPane.addTab("Ciudad", panelCiudad);
 
         add(tabbedPane, BorderLayout.CENTER);
-
     }
 }
