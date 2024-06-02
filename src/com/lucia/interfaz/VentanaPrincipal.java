@@ -28,7 +28,7 @@ public class VentanaPrincipal extends JFrame {
         setResizable(false);
         
         // Intentar cargar los datos y en caso de excepcion, crear un nuevo archivo
-        
+
         try {
             partidasGuardadas = Serializador.cargarDatos(ARCHIVO_DE_GUARDADO);
             if (partidasGuardadas == null) {
@@ -44,13 +44,11 @@ public class VentanaPrincipal extends JFrame {
         setLayout(cardLayout);
 
         // Paneles
-
         panelInicio = new PanelInicio();
         panelPartida = new PanelJuego();
         panelPuntuaciones = new PanelPuntuaciones();
 
         // Funcionalidad botones del panelInicio
-
         panelInicio.getBtnNuevaPrt().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,11 +61,18 @@ public class VentanaPrincipal extends JFrame {
                 mostrarDialogPedirNombre(false);
             }
         });
-        panelInicio.getBtnPuntuacion().addActionListener(e -> cardLayout.show(getContentPane(), "panelP2"));
+        
+        panelInicio.getBtnPuntuacion().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PanelPuntuaciones.actualizarPuntuacionesEnTabla();
+                cardLayout.show(getContentPane(), "panelPuntuacione");
+            }
+        });
 
         add(panelInicio, "panelInicio");
         add(panelPartida, "panelPartida");
-        add(panelPuntuaciones, "panelP2");
+        add(panelPuntuaciones, "panelPuntuaciones");
 
         cardLayout.show(getContentPane(), "panelInicio");
     }
