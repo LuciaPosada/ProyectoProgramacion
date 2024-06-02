@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import com.lucia.actividades.MercadoActividad;
+import com.lucia.perfil.Perfil;
 import com.lucia.producto.Producto;
 
 public class PanelProducto extends JPanel{
@@ -17,16 +18,22 @@ public class PanelProducto extends JPanel{
     private JLabel unidadLabel;
     private JLabel cantDisponibleLabel;
     private JButton negocioBtn;
+    private String opcion;
 
     private Producto producto;
+    private Perfil perfil;
+
     private JFrame parentFrame;
 
-    public PanelProducto(Producto producto) {
+    public PanelProducto(Producto producto, String opcion, Perfil perfil) {
         this.producto = producto;
+        this.opcion = opcion;
+        this.perfil = perfil;
+
         setLayout(new GridLayout(1, 5, 10, 10));
         Font fuente = new Font("Arial", Font.BOLD, 16);
 
-        // Texto (Etiquetas)
+	// Texto (Etiquetas)
 
         nombreProductoLabel = new JLabel(producto.getNombreProducto());
         precioActualLabel = new JLabel(String.valueOf(producto.getPrecio()));
@@ -40,7 +47,7 @@ public class PanelProducto extends JPanel{
         unidadLabel.setFont(fuente);
         cantDisponibleLabel.setFont(fuente);
 
-        // Boton
+	// Boton
 
         negocioBtn = new JButton("C/V");
         negocioBtn.addActionListener(new ActionListener() {
@@ -50,13 +57,13 @@ public class PanelProducto extends JPanel{
             }
         });
 
-        // Borde
+	// Borde
 
         setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.DARK_GRAY),
                 BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 
-        // Añadir elementos al panel
+	// Añadir elementos al panel
 
         add(nombreProductoLabel);
         add(precioActualLabel);
@@ -112,7 +119,11 @@ public class PanelProducto extends JPanel{
      * Muestra el dialogo de compra/venta
      */
     private void mostrarDialogCompraVenta(Producto producto) {
-        DialogCompraVenta dialog = new DialogCompraVenta(parentFrame,producto);
-        dialog.setVisible(true);
+        if (producto.getCantidad() == 0) {
+            JOptionPane.showMessageDialog(this, "No hay unidades disponibles para este producto.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        } else {
+            DialogCompraVenta dialog = new DialogCompraVenta(parentFrame,producto,opcion,perfil);
+            dialog.setVisible(true);
+        }
     }
 }
