@@ -71,7 +71,10 @@ public class ContadorAños {
      * @param perfil el perfil de la partida a finalizar
      */
     public static void finalizarPartida(Perfil perfil){
-        Puntuacion puntuacion = new Puntuacion( calcularPuntuacionFinal(perfil.getAños(),perfil.getGanancias(),perfil.getPerdidas()), perfil.getNombrePerfil());
+        int ganancias = perfil.getGanancias();
+        int perdidas = perfil.getPerdidas();
+        int años = perfil.getAños();
+        Puntuacion puntuacion = new Puntuacion( calcularPuntuacionFinal(años,ganancias,perdidas), perfil.getNombrePerfil(),ganancias,perdidas,años);
         Puntuaciones.crearPuntuacion(puntuacion);
         VentanaPrincipal.eliminarPerfil(perfil.getNombrePerfil()); 
     }
