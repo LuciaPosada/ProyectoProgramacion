@@ -34,6 +34,10 @@ public class Perfil implements Serializable{
      * Almacen asociado al perfil
      */
     private Almacen almacen;
+    /**
+     * MErcado asociado al perfil
+     */
+    private Mercado mercado;
     
     // CONSTRUCTOR
 
@@ -45,6 +49,7 @@ public class Perfil implements Serializable{
         this.salud = 100;
         this.años = 18;
         this.almacen = new Almacen();
+        this.mercado = new Mercado();
     }
     
     // GETTERS
@@ -80,6 +85,10 @@ public class Perfil implements Serializable{
     public Almacen getAlmacen() {
         return almacen;
     }
+
+    public Mercado getMercado() {
+        return mercado;
+    }
     
     // SETTERS
 
@@ -111,4 +120,7 @@ public class Perfil implements Serializable{
         this.almacen = almacen;
     }
     
+    public void setMercado(Mercado mercado) {
+        this.mercado = mercado;
+    }
 }
