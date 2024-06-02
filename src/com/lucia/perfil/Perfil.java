@@ -24,8 +24,6 @@ public class Perfil implements Serializable{
      * Cantidad de salud del jugador
      */
     private int salud;
-    
-    public final static int SALUD_MIN_PARTIDA = 1;
     /**
      * Años de la partida
      */
@@ -53,10 +51,6 @@ public class Perfil implements Serializable{
     }
     
     // GETTERS
-
-    public static int getSALUD_MIN_PARTIDA() {
-        return SALUD_MIN_PARTIDA;
-    }
 
     public String getNombrePerfil() {
         return nombrePerfil;
