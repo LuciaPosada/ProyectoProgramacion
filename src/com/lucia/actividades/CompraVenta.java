@@ -3,46 +3,6 @@ package com.lucia.actividades;
 public class CompraVenta {
 
     /**
-     * Reduce los fondos disponibles al gastar una cierta cantidad de dinero
-     * @param fondos Los fondos disponibles antes de gastar el dinero
-     * @param precioTotal La cantidad de dinero a gastar
-     * @return Los fondos restantes después de gastar el dinero
-     */
-    public static int gastarDinero(int fondos,int precioTotal){
-        return fondos - precioTotal;
-    }
-
-    /**
-     * Aumenta los fondos disponibles al ganar una cierta cantidad de dinero
-     * @param fondos Los fondos disponibles antes de ganar el dinero
-     * @param precioTotal La cantidad de dinero a ganar
-     * @return Los fondos restantes después de ganar el dinero
-     */
-    public static int ganarDinero(int fondos,int precioTotal){
-        return fondos + precioTotal;
-    }
-
-    /**
-     * Aumenta la cantidad almacenada de un producto 
-     * @param cantAumentar La cantidad a almacenar del producto
-     * @param cantAlmacenada La cantidad actualmente almacenada del producto
-     * @return La nueva cantidad almacenada después de aumentar la cantidad especificada
-     */
-    public static int aumentarCantidadProductoAlmacenado(int cantAumentar,int cantAlmacenada){
-        return cantAlmacenada + cantAumentar;
-    }
-
-     /**
-     * Reduce la cantidad almacenada de un producto 
-     * @param cantReducir La cantidad a reducir del producto almacenado
-     * @param cantAlmacenada La cantidad actualmente almacenada del producto
-     * @return La nueva cantidad almacenada después de reducir la cantidad especificada
-     */
-    public static int reducirCantidadProductoAlmacenado(int cantReducir,int cantAlmacenada){
-        return cantAlmacenada - cantReducir;
-    }
-
-    /**
      * Comprueba si hay suficiente espacio disponible en el almacén para comprar la cantidad requerida de productos
      * @param espcioAlmacen La cantidad total de espacio disponible en el almacén
      * @param cantidadComprar La cantidad de productos que se desea comprar
