@@ -1,29 +1,45 @@
 package com.lucia.interfaz;
 
-import java.awt.*;
-import java.util.ArrayList;
-
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 import com.lucia.puntuacion.Puntuacion;
 import com.lucia.puntuacion.Puntuaciones;
 
-public class PanelPuntuaciones extends JScrollPane {
+import java.awt.*;
+import java.util.ArrayList;
 
-    JPanel panelContenedor;
+public class PanelPuntuaciones extends JPanel {
+
+    private static DefaultTableModel modeloTabla;
+    private JTable tablaPuntuaciones;
 
     public PanelPuntuaciones() {
-        panelContenedor = new JPanel();
-        panelContenedor.setLayout(new BoxLayout(panelContenedor, BoxLayout.X_AXIS));
+        setLayout(new BorderLayout());
 
+        modeloTabla = new DefaultTableModel();
+        modeloTabla.addColumn("Nombre");
+        modeloTabla.addColumn("Puntuación");
+        modeloTabla.addColumn("Ganancias");
+        modeloTabla.addColumn("Pérdidas");
+        modeloTabla.addColumn("Años");
+
+        tablaPuntuaciones = new JTable(modeloTabla);
+        tablaPuntuaciones.setFont(new Font("Arial", Font.PLAIN, 15));
+
+        JScrollPane scrollPane = new JScrollPane(tablaPuntuaciones);
+        add(scrollPane, BorderLayout.CENTER);
+
+        cargarPuntuacionesEnTabla();
+    }
+
+    private static  void cargarPuntuacionesEnTabla() {
         ArrayList<Puntuacion> puntuaciones = Puntuaciones.obtenerTodasLasPuntuaciones();
 
-        for (Puntuacion puntuacion : puntuaciones) { // Crea paneles para las puntuaciones
-            PanelPuntuacion panelPuntuacion = new PanelPuntuacion(puntuacion);
-            panelContenedor.add(panelPuntuacion);
+        for (Puntuacion puntuacion : puntuaciones) {
+            Object[] fila = {puntuacion.nombre, puntuacion.puntuacion, puntuacion.ganancias, puntuacion.perdidas, puntuacion.años};
+            modeloTabla.addRow(fila);
         }
-
-        this.setViewportView(panelContenedor);
     }
 
 }
