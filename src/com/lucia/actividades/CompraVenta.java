@@ -41,7 +41,7 @@ public class CompraVenta {
     public static int reducirCantidadProductoAlmacenado(int cantReducir,int cantAlmacenada){
         return cantAlmacenada - cantReducir;
     }
-    
+
     /**
      * Comprueba si hay suficiente espacio disponible en el almacén para comprar la cantidad requerida de productos
      * @param espcioAlmacen La cantidad total de espacio disponible en el almacén
@@ -52,7 +52,6 @@ public class CompraVenta {
     public static boolean comprobarEspacioDisponible(int espcioTotal,int cantidadComprar,int espacioEnUso){
         return (cantidadComprar+espacioEnUso)<= espcioTotal;
     }
-
 
     /**
      * Metodo que comprueba si el jugador tiene suficientes fondos para realizar la compra
