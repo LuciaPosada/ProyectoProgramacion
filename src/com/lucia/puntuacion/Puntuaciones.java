@@ -40,33 +40,6 @@ public class Puntuaciones {
     }
 
     /**
-     * Obtiene una puntuación por el nombre de la partida
-     * @param nombreBuscar identificador de la partida que se quiere buscar
-     * @return La puntuación encontrada, o null si no se encuentra
-     */
-    public static Puntuacion obtenerPuntuacionPorNombre(String nombreBuscar) {
-        Puntuacion puntuacionEncontrada = null;
-
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String query = "SELECT nompart,puntuaciones FROM public.\"puntuaciones\" WHERE nombre = \"?\"";
-            try (PreparedStatement statement = conn.prepareStatement(query)) {
-                statement.setString(1, nombreBuscar);
-
-                try (ResultSet resultSet = statement.executeQuery()) {
-                    if (resultSet.next()) {
-                        String nombre = resultSet.getString("nompart");
-                        int puntuacionBase = resultSet.getInt("puntuaciones");
-                        puntuacionEncontrada = new Puntuacion(puntuacionBase,nombre);
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            System.err.println("Error al obtener puntuacion: " + e.getMessage());
-        }
-        return puntuacionEncontrada;
-    }
-
-    /**
      * Obtiene todas las puntuaciones de la base de datos, ordenadas alfabéticamente por nombre.
      * @return ArrayList de las puntuaciones
      */
