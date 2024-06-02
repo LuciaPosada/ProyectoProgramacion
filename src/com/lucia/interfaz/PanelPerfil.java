@@ -14,6 +14,9 @@ import javax.swing.border.Border;
 import com.lucia.perfil.Perfil;
 
 public class PanelPerfil extends JPanel {
+
+    private static PanelPerfil panelPerfil;
+
     private Perfil perfil;
     private JLabel nombreEtiqueta;
     private JLabel añosEtiqueta;
@@ -57,7 +60,7 @@ public class PanelPerfil extends JPanel {
                     saludEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
                 fondosEtiqueta = new JLabel("F: "+perfil.getFondos());
                     fondosEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT); 
-                    espacioEtiqueta = new JLabel("E: "+perfil.getAlmacen().getEspacioTotal()+"|"+perfil.getAlmacen().getEspacioEnUso());
+                espacioEtiqueta = new JLabel("E: "+perfil.getAlmacen().getEspacioTotal()+"|"+perfil.getAlmacen().getEspacioEnUso());
                     espacioEtiqueta.setAlignmentX(Component.CENTER_ALIGNMENT);
 
                 panelStats.add(saludEtiqueta);
@@ -95,6 +98,8 @@ public class PanelPerfil extends JPanel {
             add(Box.createVerticalStrut(20));
             add(panelBtns);
             add(Box.createVerticalStrut(20));
+
+            panelPerfil = this;
     }
 
     public Perfil getPerfil() {
@@ -111,4 +116,7 @@ public class PanelPerfil extends JPanel {
         espacioEtiqueta.setText("E: "+ perfil.getAlmacen().getEspacioTotal()+"|"+perfil.getAlmacen().getEspacioEnUso());
     }
 
+    public static PanelPerfil getInstance(){
+        return panelPerfil;
+    }
 }
