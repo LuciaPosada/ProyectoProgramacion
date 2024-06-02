@@ -2,64 +2,53 @@ package com.lucia.interfaz;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridLayout;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import com.lucia.actividades.Mercado;
+import com.lucia.actividades.MercadoActividad;
 import com.lucia.producto.Producto;
 
 public class PanelProducto extends JPanel{
 
     private JLabel nombreProductoLabel;
     private JLabel precioActualLabel;
-    private JLabel cantDisponibleMercado;
-    private JLabel cantDisponibleAlmacen;
-    private JButton comprarBtn;
-    private JButton venderBtn;
+    private JLabel monedaLabel;
+    private JLabel unidadLabel;
+    private JLabel cantDisponibleLabel;
+    private JButton negocioBtn;
 
     private Producto producto;
+    private JFrame parentFrame;
 
-    private JFrame parentFrame; // Para pasarselo al panel CompraVenta
-
-    public PanelProducto(Producto producto){ // ToDo: Cambiar placeholders
+    public PanelProducto(Producto producto) {
         this.producto = producto;
-        this.parentFrame = parentFrame;
-        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-
+        setLayout(new GridLayout(1, 5, 10, 10));
         Font fuente = new Font("Arial", Font.BOLD, 16);
 
         // Texto (Etiquetas)
 
-            nombreProductoLabel = new JLabel(producto.getNombreProducto());
-            precioActualLabel = new JLabel(String.valueOf(producto.getPrecio()));
-            cantDisponibleMercado = new JLabel("[CantM]");
-            cantDisponibleAlmacen = new JLabel("[CantA]");
+        nombreProductoLabel = new JLabel(producto.getNombreProducto());
+        precioActualLabel = new JLabel(String.valueOf(producto.getPrecio()));
+        monedaLabel = new JLabel("€");
+        unidadLabel = new JLabel("Ud.");
+        cantDisponibleLabel = new JLabel(String.valueOf(producto.getCantidad()));
 
-            nombreProductoLabel.setFont(fuente);
-            precioActualLabel.setFont(fuente);
-            cantDisponibleMercado.setFont(fuente);
-            cantDisponibleAlmacen.setFont(fuente);
+        nombreProductoLabel.setFont(fuente);
+        precioActualLabel.setFont(fuente);
+        monedaLabel.setFont(fuente);
+        unidadLabel.setFont(fuente);
+        cantDisponibleLabel.setFont(fuente);
 
-        // Botones
-        
-            comprarBtn = new JButton("Comprar");
-            venderBtn = new JButton("Vender");
+        // Boton
 
-
-            comprarBtn.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mostrarDialogCompraVenta(producto);
-                }
-            });
-
-            venderBtn.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    mostrarDialogCompraVenta(producto);
-                }
-            });
+        negocioBtn = new JButton("C/V");
+        negocioBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mostrarDialogCompraVenta(producto);
+            }
+        });
 
         // Borde
 
@@ -68,33 +57,22 @@ public class PanelProducto extends JPanel{
                 BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 
         // Añadir elementos al panel
-        
-        add(nombreProductoLabel);
-        add(Box.createHorizontalStrut(20));
-        add(precioActualLabel);
-        add(Box.createHorizontalStrut(10));
-        add(cantDisponibleMercado);
-        add(Box.createHorizontalStrut(10));
-        add(cantDisponibleAlmacen);
-        add(Box.createHorizontalStrut(10));
-        add(comprarBtn);
-        add(Box.createHorizontalStrut(5));
-        add(venderBtn);
 
-        // Oberver
-        Mercado.agregarObservador(this);
+        add(nombreProductoLabel);
+        add(precioActualLabel);
+        add(monedaLabel);
+        add(unidadLabel);
+        add(cantDisponibleLabel);
+        add(negocioBtn);
+
+        MercadoActividad.agregarObservador(this);
     }
 
-    /**
-     * Metodo para actualizar la etiqueta [precio] del producto
-     * @param nuevoPrecio el nuevo precio por el que se va cambiar el anterior
-     * @param cambioPrecio dicta si se a producido un aumento/disminucion o nada
-     */
-    void setPrecioLabel(String nuevoPrecio,String cambioPrecio) {
+    void setPrecioLabel(String nuevoPrecio, String cambioPrecio) {
         final String AUMENTO = "aumento";
         final String DISMINUCION = "disminucion";
         final String IGUAL = "igual";
-        
+
         precioActualLabel.setText(nuevoPrecio);
 
         switch (cambioPrecio) {
@@ -110,9 +88,6 @@ public class PanelProducto extends JPanel{
         }
     }
 
-    /**
-     * Actualiza el precio del producto en la interfaz en base a el aumento o disminucion de este
-     */
     public void actualizarPrecio() {
         int nuevoPrecio = producto.getPrecio();
         int precioAnterior = Integer.parseInt(precioActualLabel.getText());
@@ -136,5 +111,4 @@ public class PanelProducto extends JPanel{
         DialogCompraVenta dialog = new DialogCompraVenta(parentFrame,producto);
         dialog.setVisible(true);
     }
-
 }
