@@ -7,6 +7,8 @@ import com.lucia.puntuacion.Puntuacion;
 import com.lucia.puntuacion.Puntuaciones;
 
 public class ContadorAños {
+
+    public final static int SALUD_MIN_PARTIDA = 1;
     
     /**
      * Metodo que suma 1 año a los que tiene el pefil de la partida
@@ -50,7 +52,7 @@ public class ContadorAños {
      * @return true si se a la salud a llegado a cero o menos | false si la salud esta por encima de 0
      */
     public static boolean comprobarLimiteSalud(int salud) {
-        return salud <= 0;
+        return salud < SALUD_MIN_PARTIDA;
     }
 
    /**
