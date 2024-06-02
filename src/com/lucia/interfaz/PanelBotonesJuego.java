@@ -14,7 +14,6 @@ import com.lucia.actividades.MercadoActividad;
 import com.lucia.perfil.Almacen;
 import com.lucia.perfil.Mercado;
 import com.lucia.perfil.Perfil;
-import com.lucia.puntuacion.Puntuaciones;
 
 
 public class PanelBotonesJuego extends JPanel {
