@@ -34,6 +34,14 @@ public class PanelPuntuaciones extends JPanel {
         agregarBotonRetorno();
     }
 
+    /**
+     * Actualiza las puntuaciones en la tabla.
+     */
+    public static void actualizarPuntuacionesEnTabla() {
+        limpiarTabla();
+        cargarPuntuacionesEnTabla();
+    }
+
     private static  void cargarPuntuacionesEnTabla() {
         ArrayList<Puntuacion> puntuaciones = Puntuaciones.obtenerTodasLasPuntuaciones();
 
@@ -41,6 +49,10 @@ public class PanelPuntuaciones extends JPanel {
             Object[] fila = {puntuacion.nombre, puntuacion.puntuacion, puntuacion.ganancias, puntuacion.perdidas, puntuacion.años};
             modeloTabla.addRow(fila);
         }
+    }
+
+    private static void limpiarTabla() {
+        modeloTabla.setRowCount(0);
     }
 
     private void agregarBotonRetorno() {
