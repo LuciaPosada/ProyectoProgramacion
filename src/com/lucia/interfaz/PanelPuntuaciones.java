@@ -31,6 +31,7 @@ public class PanelPuntuaciones extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
 
         cargarPuntuacionesEnTabla();
+        agregarBotonRetorno();
     }
 
     private static  void cargarPuntuacionesEnTabla() {
@@ -42,4 +43,16 @@ public class PanelPuntuaciones extends JPanel {
         }
     }
 
+    private void agregarBotonRetorno() {
+        JButton retornoBtn = new JButton("Volver al Inicio");
+        retornoBtn.setFont(new Font("Arial", Font.PLAIN, 15));
+        retornoBtn.addActionListener(e -> {
+            VentanaPrincipal ventanaPrincipal = (VentanaPrincipal) SwingUtilities.getWindowAncestor(this);
+            ventanaPrincipal.mostrarPanelInicio();
+        });
+
+        JPanel panelBoton = new JPanel();
+        panelBoton.add(retornoBtn);
+        add(panelBoton, BorderLayout.SOUTH);
+    }
 }
