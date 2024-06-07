@@ -27,3 +27,5 @@ El jugador asume el papel de un inversor con un límite de tiempo definido por s
 ![Clases](/Diagramas/Captura2.png)
 
 ![Clases](/Diagramas/Captura3.png)
+
+![Clases](/Diagramas/Captura4.png)
