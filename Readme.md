@@ -17,3 +17,13 @@ El jugador asume el papel de un inversor con un límite de tiempo definido por s
 ### Diagrama de clases
 
 ![Clases](/Diagramas/Proyecto_Clases2.png)
+
+---
+
+### Capturas
+
+![Clases](/Diagramas/Captura1.png)
+
+![Clases](/Diagramas/Captura2.png)
+
+![Clases](/Diagramas/Captura3.png)
